@@ -43,3 +43,86 @@ Right now we
 -
 -
 -
+
+## variables.css
+
+```css
+
+:root {
+    /*
+     * Typography
+     * ======================================================================== */
+
+--font-family-base: 'Segoe UI', 'HelveticaNeue-Light', sans-serif;
+
+/*
+ * Color
+ * ======================================================================== */
+--color-initial: #fff;
+--color-black: #000;
+--color-primary: #9b4dca;
+--color-secondary: #606c76;
+--color-tertiary: #f4f5f6;
+--color-quaternary: #d1d1d1;
+--color-quinary: #e1e1e1;
+--color-success: #396f3a;
+--color-warning: #f59f00;
+--color-danger: #c92a2a;
+--color-info: #0b7285;
+
+
+
+/*
+ * Form
+ * ======================================================================== */
+--input-background-color: transparent;
+--input-height: 3.8rem;
+/*--input-border: 0.1rem;*/
+--input-border: 0.1rem solid var(--color-quaternary);
+--input-border-radius: 0.4rem;
+--input-padding: 0.6rem 1.0rem; /*The .6rem vertically centers text on FF, ignored by Webkit*/
+
+--field-margin: 1.0rem;
+
+
+/*
+ * Card Shadow ...
+ * ======================================================================== */
+
+/*
+ * Margin between inline items like buttons
+ * ======================================================================== */
+--margin-inline: 0.4rem; /*like buttons*/
+
+--margin-vertical: 0.4rem; /*like form elements?*/
+
+--margin-container-vert: 1.6rem; /*panels, etc*/
+
+
+/*
+ * Text Size
+ * ======================================================================== */
+--text-tiny: 1.0rem;  /*badge, etc*/
+--text-small: 1.2rem;  /* not used yet */
+--text-medium: 1.4rem;  /* not used yet */
+--text-large: 1.8rem;  /* not used yet */
+--text-xlarge: 2.4rem;  /*bar brand, etc*/
+
+/*
+ * Layout
+ * ======================================================================== */
+
+--nav-min-width: 25.0rem;
+--max-content-width: 112.0rem;
+
+/*
+ * Media queries breakpoints
+ * ======================================================================== */
+
+--screen-xs-min: 320px;  /* Custom, IPhone Retina*/
+--screen-xs-min: 480px;  /* Extra small screen / phone */
+--screen-sm-min: 768px;  /* Small screen / tablet */
+--screen-md-min: 992px;  /* Medium screen / desktop */
+--screen-lg-min: 1200px; /* Large screen / wide desktop */
+}
+```
