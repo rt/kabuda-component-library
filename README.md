@@ -19,7 +19,7 @@ This let's us use them in the same ways (withStyles), not saying that is good bu
 - isomorphic-style-loader components (probably should move to simple bundled css)
 - any dependencies must be included in the app
 - any component dependencies will be written in the components comments
-- styled by `variables.css` overwritten by app (sym link to here `src/components/css/variables.css`
+- styled by `src/components/variables.css` overwritten by app (sym link to here `src/components/variables.css`
 - history to be passed in as a context type
 
 ## Notes
