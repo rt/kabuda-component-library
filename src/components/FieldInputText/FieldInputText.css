@@ -1,0 +1,29 @@
+@import '../css/variables.css';
+
+/* horizontal row at least 340px, otherwise stack vertically */
+.root {
+    margin-bottom: var(--field-margin);
+    flex:1;
+}
+
+.labelInputContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    
+    /*The width of the labels should be at least 120px and at most 220px. */
+    & label {
+        flex: 1 0 120px;
+        max-width: 220px;
+        /*text-align: right;*/
+    }
+
+    /* at least 220px; */
+    & input {
+        flex: 1 0 220px;
+    }
+}
+
+
+

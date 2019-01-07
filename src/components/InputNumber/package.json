@@ -1,0 +1,6 @@
+{
+    "name": "InputNumber",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./InputNumber.js"
+}

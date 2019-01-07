@@ -1,0 +1,6 @@
+{
+    "name": "SkipLinks",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./SkipLinks.js"
+}

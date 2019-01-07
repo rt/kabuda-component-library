@@ -1,0 +1,6 @@
+{
+    "name": "InputSwitch",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./InputSwitch.js"
+}

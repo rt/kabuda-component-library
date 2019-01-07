@@ -1,0 +1,28 @@
+@import '../css/variables.css';
+
+/*this does limit it to this component but this should be a class? > didn't work on first try*/
+code {
+  background: var(--color-tertiary);
+  border-radius: .4rem;
+  font-size: 86%;
+  margin: 0 .2rem;
+  padding: .2rem .5rem;
+  white-space: nowrap;
+}
+
+pre {
+  background: var(--color-tertiary);
+  border-left: .3rem solid var(--color-primary);
+  overflow-y: hidden;
+  overflow-x: auto;
+
+  & > code {
+      border-radius: 0;
+      display: block;
+      padding: 1rem 1.5rem;
+      white-space: pre;
+  }
+}
+
+
+ 

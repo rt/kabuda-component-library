@@ -1,0 +1,47 @@
+@import '../css/variables.css';
+
+.root {
+    display: flex;
+}
+
+.hor {
+    flex-direction: row;
+}
+
+.vert {
+    flex-direction: column;
+}
+
+.root button {
+    border-radius: 0px;
+}
+
+.hor button:not(:last-child) {
+    border-right: none; /* Prevent double borders */
+}
+
+.vert button:not(:last-child) {
+    border-bottom: none; /* Prevent double borders */
+}
+
+
+.hor button:first-child {
+    border-top-left-radius: 0.4rem;
+    border-bottom-left-radius: 0.4rem;
+}
+
+.hor button:last-child {
+    border-top-right-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+}
+
+.vert button:first-child {
+    border-top-left-radius: 0.4rem;
+    border-top-right-radius: 0.4rem;
+}
+
+.vert button:last-child {
+    border-bottom-left-radius: 0.4rem;
+    border-bottom-right-radius: 0.4rem;
+}
+

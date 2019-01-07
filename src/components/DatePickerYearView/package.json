@@ -1,0 +1,6 @@
+{
+    "name": "DatePickerYearView",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./DatePickerYearView.js"
+}

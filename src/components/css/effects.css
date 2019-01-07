@@ -1,0 +1,44 @@
+
+.opacity,.hover-opacity:hover {
+    opacity:0.60;
+    -webkit-backface-visibility:hidden;
+}
+
+.opacity-off,.hover-opacity-off:hover {
+    opacity:1;
+    -webkit-backface-visibility:hidden;
+}
+
+.opacity-max {
+    opacity:0.25;
+    -webkit-backface-visibility:hidden;
+}
+
+.opacity-min {
+    opacity:0.75;
+    -webkit-backface-visibility:hidden;
+}
+
+.greyscale-max,.grayscale-max,.hover-greyscale:hover,.hover-grayscale:hover {
+    filter:grayscale(100%);
+}
+
+.greyscale,.grayscale {
+    filter:grayscale(75%);
+}
+
+.greyscale-min,.grayscale-min {
+    filter:grayscale(50%);
+}
+
+.sepia {
+    filter:sepia(75%);
+}
+
+.sepia-max,.hover-sepia:hover {
+    filter:sepia(100%);
+}
+
+.sepia-min {
+    filter:sepia(50%);
+}

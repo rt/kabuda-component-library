@@ -1,0 +1,6 @@
+{
+    "name": "FieldBase",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./FieldBase.js"
+}

@@ -1,0 +1,6 @@
+{
+    "name": "InputTextArea",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./InputTextArea.js"
+}

@@ -1,0 +1,17 @@
+
+.line {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+/*.checkbox {*/
+    /*flex: 1 1 auto;*/
+/*}*/
+.stars {
+    flex: 1 1 auto;
+}
+/*.count {*/
+    /*flex: 1 1 auto;*/
+/*}*/

@@ -1,0 +1,6 @@
+@import '../css/variables.css';
+
+.like {
+    font-size: var(--text-xlarge);
+}
+

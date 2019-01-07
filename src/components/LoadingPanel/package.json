@@ -1,0 +1,6 @@
+{
+    "name": "LoadingPanel",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./LoadingPanel.js"
+}

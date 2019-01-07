@@ -1,0 +1,23 @@
+
+.list {
+    padding-left:0;
+    display: block;
+    list-style: none;
+}
+
+.line {
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+/*.checkbox {*/
+    /*flex: 1 1 auto;*/
+/*}*/
+.name {
+    flex: 1 1 auto;
+}
+/*.count {*/
+    /*flex: 1 1 auto;*/
+/*}*/

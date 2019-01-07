@@ -1,0 +1,6 @@
+{
+    "name": "FieldInputText",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./FieldInputText.js"
+}

@@ -1,0 +1,6 @@
+{
+    "name": "FilterRating",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./FilterRating.js"
+}

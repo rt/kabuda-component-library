@@ -1,0 +1,17 @@
+@import '../css/effects.css';
+@import '../css/container.css';
+
+.normal {
+    max-width:100%; 
+}
+
+.responsive {
+  width: 100%;
+  height: auto;
+}
+
+.responsiveHeight {
+  width: auto;
+  height: 100%;
+}
+

@@ -1,0 +1,40 @@
+@import '../css/variables.css';
+
+.root {
+}
+/*
+ * see: https://tympanus.net/codrops/2015/09/15/styling-customizing-file-inputs-smart-way/
+ *
+ * CSS properties such as display: none or visibility: hidden will not work out. The reasons are: the input value will not be sent to the server on form submit; the input will be excluded out of tab order (you want your website to be accessible, right?)
+ * I see you are wondering why width and height are set to 0.1px instead of just 0px. Setting the property values to zero ends up throwing the element out of tab party in some browsers. And position: absolute guarantees the element does not interfere with the sibling elements.
+ */
+
+.inputFile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+.inputFile + label {
+    font-size: 1.25em;
+    font-weight: 700;
+    color: white;
+    background-color: black;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.inputFile:focus + label,
+.inputFile + label:hover {
+    background-color: red;
+    outline: 1px dotted #000;
+    outline: -webkit-focus-ring-color auto 5px; /*to make it look like chrome outline*/
+}
+
+.inputFile + label * {
+    pointer-events: none;
+}
+

@@ -1,0 +1,55 @@
+
+.nav {
+    padding-left:0;
+    list-style: none;
+}
+
+.navVert {
+    display: block;
+}
+
+.navHor {
+    display: inline-block;
+    margin-bottom: 0; /* when horizontal let it look more inline */
+}
+
+.item, .highlight {
+    margin-bottom: 1.0rem;
+    cursor: pointer;
+}
+
+.item {
+    border-radius: 3px;
+}
+
+.itemVert {
+    display: list-item;
+}
+
+/*.item-vert,*/
+/*.item-vert:active,*/
+/*.item-vert:visited {*/
+    /*color: rgba(255, 255, 255, 0.6);*/
+/*}*/
+.itemVert:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
+
+.itemHor {
+    display: inline-block;
+}
+
+
+.highlight {
+    border-radius: 3px;
+    background: rgba(0, 0, 0, 0.15);
+    color: #fff;
+    cursor: none;
+}
+/*.highlight:hover {*/
+    /*background: rgba(0, 0, 0, 0.3);*/
+/*}*/
+
+.spacer {
+    color: #aaa;
+}

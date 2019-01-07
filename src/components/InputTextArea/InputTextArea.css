@@ -1,0 +1,21 @@
+@import '../css/variables.css';
+
+.root {
+  min-height: 6.5rem;
+  appearance: none; /*Removes awkward default styles on some inputs for iOS*/
+  background-color: var(--input-background-color);
+  border: var(--input-border);
+  border-radius: var(--input-border-radius);
+  box-shadow: none;
+  box-sizing: inherit; /*Forced to replace inherit values of the normalize.css*/
+  height: var(--input-height);
+  padding: var(--input-padding);
+  width: 100%;
+  
+  &:focus {
+      border-color: var(--color-primary);
+      outline: 0;
+  }
+}
+
+

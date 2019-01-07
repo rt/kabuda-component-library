@@ -1,0 +1,14 @@
+@import '../css/variables.css';
+
+.root {
+}
+
+.sliderRow {
+    display: flex;
+    flex-direction: row;
+}
+
+.sliderCol {
+    flex: 1;
+}
+

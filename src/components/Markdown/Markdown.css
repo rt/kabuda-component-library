@@ -1,0 +1,23 @@
+@import '../css/variables.css';
+@import '../css/container.css';
+
+
+.danger {
+    color: var(--color-quinary);
+    background-color: var(--color-danger);
+}
+
+/*make a close btn component?*/
+.closebtn {
+    text-decoration:none;
+    float:right;
+    font-size:24px;
+    font-weight:bold;
+    color:inherit
+}
+
+.closebtn:hover,.closebtn:focus{
+    color:#000;
+    text-decoration:none;
+    cursor:pointer
+}

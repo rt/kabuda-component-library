@@ -1,0 +1,6 @@
+{
+    "name": "InputFile",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./InputFile.js"
+}

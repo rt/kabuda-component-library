@@ -1,0 +1,55 @@
+@import '../css/variables.css';
+
+
+.table,.tableAll{
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    display: table;
+}
+
+.tableAll{
+    border: .1rem solid #ccc;
+}
+
+
+.bordered tr,.tableAll tr {
+    border-bottom: .1rem solid #ddd;
+}
+
+.striped tbody tr:nth-child(even){
+    background-color: #f1f1f1;
+}
+
+.oddRow {
+    background-color: #fff;
+}
+
+.evenRow {
+    background-color: #f1f1f1;
+}
+
+.selectedRow {
+    background-color: var(--color-primary);
+    color: var(--color-initial);
+}
+
+.hoverable tbody tr:hover,.ul.hoverable li:hover{
+    background-color: #ccc;
+}
+
+.centered tr th,.centered tr td{
+    text-align: center;
+}
+
+.table td,.table th,.tableAll td,.tableAll th{
+    padding: 0.8rem 0.8rem;
+    display: table-cell;
+    text-align: left;
+    vertical-align: top;
+}
+
+.table th:first-child,.table td:first-child,.tableAll th:first-child,.tableAll td:first-child {
+    padding-left:1.6rem;
+}
+

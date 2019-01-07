@@ -1,0 +1,18 @@
+@import './variables.css';
+
+.text-tiny {
+    font-size: var(--text-tiny);
+}
+.text-small {
+    font-size: var(--text-small);
+}
+.text-medium {
+    font-size: var(--text-medium);
+}
+.text-large {
+    font-size: var(--text-large);
+}
+.text-xlarge {
+    font-size: var(--text-xlarge);
+}
+

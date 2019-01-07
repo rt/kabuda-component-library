@@ -1,0 +1,15 @@
+
+.container {
+    padding: 0.01em 1.6rem;
+}
+
+.container-full {
+    padding: 1.6rem 1.6rem;
+}
+
+.panel {
+    padding: 0.01em 1.6rem;
+    margin-top: 1.6rem;
+    margin-bottom: 1.6rem;
+}
+

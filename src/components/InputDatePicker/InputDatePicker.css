@@ -1,0 +1,14 @@
+@import '../css/variables.css';
+@import '../css/container.css';
+
+.root {
+    position: relative;
+    display: inline-block;
+    border: 0px;
+}
+.dropdownContent {
+    position: absolute;
+    background-color: var(--color-tertiary);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}

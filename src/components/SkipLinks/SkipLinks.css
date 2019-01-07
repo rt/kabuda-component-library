@@ -1,0 +1,26 @@
+@import '../css/variables.css';
+
+.root {
+    padding-left: 0;
+    list-style: none;
+}
+
+.skip {
+    position: absolute;
+    top: -1000px;
+    left: -1000px;
+    height: 1px;
+    width: 1px;
+    text-align: left;
+    overflow: hidden;
+}
+
+.skip:active, 
+.skip:focus, 
+.skip:hover {
+    left: 0; 
+    top: 0;
+    width: auto; 
+    height: auto; 
+    overflow: visible; 
+}

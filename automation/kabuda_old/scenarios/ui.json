@@ -1,0 +1,19 @@
+{
+    "name": "ui",
+    "url": null,
+    "path": null,
+    "tests": [
+        {
+            "name": "change directories",
+            "actions": [
+                ["assertText", "headerTitle", "YoTeam"]
+            ]
+        },
+        {
+            "name": "change directories",
+            "actions": [
+                ["assertText", "headerTitle", "YoTeam"]
+            ]
+        }
+    ]
+}

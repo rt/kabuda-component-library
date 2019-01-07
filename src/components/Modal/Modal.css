@@ -1,0 +1,91 @@
+@import '../css/variables.css';
+@import '../css/container.css';
+@import '../css/animations.css';
+
+.modal {
+    z-index: 3;
+    display: block;
+    padding-top: 100px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.header {
+    border-bottom: 1px solid var(--color-secondary);
+    padding: 1.0rem;
+}
+
+.smallText {
+}
+
+.body {
+    padding: 1.0rem;
+}
+
+.footer {
+    text-align: right;
+    border-top: 1px solid var(--color-secondary);
+    padding: 1.0rem;
+    & > button {
+        margin-right: 1.0rem;
+    }
+}
+
+.content {
+    margin: auto;
+    background-color: #fff;
+    position: relative;
+    padding: 0;
+    outline: 0;
+    width: 600px;
+}
+
+.closebtn {
+    text-decoration:none;
+    position: absolute;
+    margin-right: 1.0rem;
+    top: 0;
+    right: 0;
+    font-size: 2.8rem;
+    font-weight: bold;
+    color: inherit;
+    background: transparent;
+    border: 0;
+}
+
+.closebtn:hover,.closebtn:focus{
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    background: transparent;
+    border: 0;
+}
+
+/* didnt work */
+/* @media (max-width: var(--screen-sm-min)) { */
+@media (max-width: 768px) {
+    .modal {
+        padding-top: 50px;
+    }
+    .content {
+        width: 500px;
+    }
+}
+
+@media (max-width: 600px) {
+    .modal {
+        padding-top: 30px;
+    }
+    .content {
+        margin: 0 10px;
+        width: auto!important;
+    }
+}
+
+

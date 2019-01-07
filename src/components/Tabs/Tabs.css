@@ -1,0 +1,38 @@
+
+.nav {
+    padding-left:0;
+    list-style: none;
+    display: block;
+    clear: both;
+}
+
+.item {
+    float: left;
+    position: relative;
+    display: block;
+    background-color: #fff;
+}
+
+.link, .linkSelected {
+    margin-right: 2px;
+    display: block;
+    padding: 10px 15px;
+    position: relative;
+}
+
+.link {
+    cursor: pointer;
+    
+    &:hover {
+        background-color: #ddd;
+        border: 1px solid #ddd;
+    }
+}
+
+.linkSelected {
+    cursor: default;
+    background-color: #fff;
+    border-bottom: 3px solid #ddd;
+}
+
+
