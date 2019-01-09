@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import s from './Table.css';
 import cx from 'classnames';
 import Base from '../Base';
-import { utils } from 'kabuda';
+import { utils } from 'kabuda-liquid';
 
 export class Table extends Base {
     

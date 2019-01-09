@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import s from './FieldBase.css';
 import cx from 'classnames';
 import Base from '../Base';
-import { models } from 'kabuda';
+import { models } from 'kabuda-liquid';
 
 //for some reason i couldnt get this to work ...
 export class FieldBase extends Base {

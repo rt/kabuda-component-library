@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { stores } from '../libs/home';
-import { utils } from 'kabuda';
+import { utils } from 'kabuda-liquid';
 
 const getStore = stores.dataStore.getStore;
 

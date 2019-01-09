@@ -7,7 +7,7 @@ import Label from '../Label';
 //import FieldBase from '../FieldBase';
 import Base from '../Base';
 import InputText from '../InputText';
-import { models } from 'kabuda';
+import { models } from 'kabuda-liquid';
 
 export class FieldInputText extends Base {
 

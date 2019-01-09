@@ -5,7 +5,7 @@ import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import s from './NavList.css';
 import Link from '../Link';
 import Base from '../Base';
-import { utils } from 'kabuda';
+import { utils } from 'kabuda-liquid';
 import { stores } from '../../libs/home';
 
 const getStateStore = stores.stateStore.getStateStore;
