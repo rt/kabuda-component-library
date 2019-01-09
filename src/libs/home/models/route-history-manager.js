@@ -1,4 +1,4 @@
-import { models } from 'kabuda';
+import { models } from 'kabuda-liquid';
 import RouteHistory from './route-history';
 import RouteDefinition from './route-definition';
 

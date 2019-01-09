@@ -1,4 +1,4 @@
-import { models } from 'kabuda';
+import { models } from 'kabuda-liquid';
 
 export default class RouteHistory extends models.Model {
 

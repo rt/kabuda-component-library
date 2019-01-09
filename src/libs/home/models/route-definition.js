@@ -1,4 +1,4 @@
-import { models } from 'kabuda';
+import { models } from 'kabuda-liquid';
 
 /**
  * RouteDefinition is the main route meta data currently defined in uiData

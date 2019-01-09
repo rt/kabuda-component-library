@@ -1,4 +1,4 @@
-import { stores, models, utils } from 'kabuda';
+import { stores, models, utils } from 'kabuda-liquid';
 import RouteHistoryManager from '../models/route-history-manager';
 import AppState from '../models/app-state';
 

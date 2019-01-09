@@ -1,4 +1,4 @@
-import { stores, models } from 'kabuda';
+import { stores, models } from 'kabuda-liquid';
 import UiData from '../models/ui-data';
 import User from '../models/user';
 
