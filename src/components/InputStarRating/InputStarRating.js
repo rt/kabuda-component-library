@@ -14,6 +14,7 @@ export class InputStarRating extends Base {
 
     handleClick(e) {
         this.props.onClick && this.props.onClick(parseFloat(e.target.getAttribute('data-value')));
+        e.preventDefault();
     }
 
     //getList() {
