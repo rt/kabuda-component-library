@@ -39,6 +39,9 @@
     display: inline-block;
 }
 
+.itemHor:hover {
+    background: rgba(0, 0, 0, 0.1);
+}
 
 .highlight {
     border-radius: 3px;
