@@ -44,7 +44,71 @@ Right now we
 -
 -
 
-## variables.css
+## Concepts
+
+The design concepts follow a defined hierarchy with parent/child relationship.
+Each defines no outer spacing, leaving it to the implemetor.  With the larger
+pieces the implemetor (parent) will choose to use a Surface to apply consistent
+outer spacing (style) for the child.  Thus, the parent would position and size
+the child but would leave the inner stle to a Surface.  Each parent would also
+provide responsive design and actions for the children but should follow
+consistent guidelines using variables. Often components should define `root: {flex: 1}`
+to take up whatever space the parent gives them.
+
+
+Any entity can hold components.
+
+*Layout*
+
+The Layout holds the Regions and only defines 
+- left/right margins.
+- Responsive design for regions.
+
+*Regions*
+
+Regions define the outer spacing for inner componets.  Regions have specific areas, singletons, and are not nested.
+
+- Header (App Bar Top)
+- Footer (App Bar Bottom)
+- Modal (Center)
+- Aside (Left)
+- Center (Main)
+-
+
+*Surfaces*
+
+Provide the outer spacing and general styling for their child components.
+
+*Containers*
+
+Containers hold other containers and define spacing for them.
+Containers should apply consistent gutter width. These will often be found in routes/components,
+not reusable
+
+*List Containers*
+
+List Containers hold, transition, and layout cards.
+
+*Cards*
+
+Cards are Surfaces that hold components and composite componets and define spacing for them.
+Cards are often the display for data.
+
+*Composite Components*
+
+Components that use other componets such as a nav list, menus, icon bar, etc.
+
+*Components*
+
+Components are buttons, links, icons, etc. 
+
+
+## Breakpoints
+
+## Design Guidelines
+
+Design are represented in `variables.css`. When designing components
+you should reuse variables and expose new ones if needed.
 
 ```css
 
@@ -63,7 +127,6 @@ Right now we
 --color-primary: #9b4dca;
 --color-secondary: #606c76;
 --color-tertiary: #f4f5f6;
---color-quaternary: #d1d1d1;
 --color-quinary: #e1e1e1;
 --color-success: #396f3a;
 --color-warning: #f59f00;
@@ -112,7 +175,6 @@ Right now we
  * Layout
  * ======================================================================== */
 
---nav-min-width: 25.0rem;
 --max-content-width: 112.0rem;
 
 /*
