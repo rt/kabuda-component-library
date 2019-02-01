@@ -51,9 +51,9 @@ export const testDuplicateTab = function (localStorage, sessionStorage) {
         }
         setTabObj();
         setInterval(setTabObj, localStorageResetInterval);
-        return true;
+        return false;
     } else {
         // An active tab is already open that does not match our session guid.
-        return false;
+        return true;
     }
 }
