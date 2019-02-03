@@ -11,7 +11,6 @@ import Badge from '../Badge';
 /**
  */
 export class FilterRating extends Base {
-
     static MAX_RATING = 5;
 
     constructor(props) {
@@ -22,10 +21,8 @@ export class FilterRating extends Base {
     }
 
     handleChange(name, val) {
-        let ratings = this.props.ratings;
-        let changedRating = ratings.find(rating => {
-            return rating.value.toString() === name;
-        });
+        const ratings = this.props.ratings;
+        const changedRating = ratings.find(rating => rating.value.toString() === name);
         changedRating.isSelected = !changedRating.isSelected;
         this.props.onRatingChange(ratings);
     }
@@ -33,25 +30,23 @@ export class FilterRating extends Base {
     getInputs() {
         const list = [];
         this.props.ratings.forEach((rating) => {
-            list.push(
-                <div className={cx(s.line)} key={rating.value}>
-                    <InputCheckBox 
-                        name={rating.value.toString()}
-                        checked={rating.isSelected}
-                        onChange={this.handleChange}
+            list.push(<div className={cx(s.line)} key={rating.value}>
+                <InputCheckBox
+                    name={rating.value.toString()}
+                    checked={rating.isSelected}
+                    onChange={this.handleChange}
+                />
+                <span className={cx(s.stars)}>
+                    <StarRating
+                        rating={rating.value}
+                        maxRating={FilterRating.MAX_RATING}
                     />
-                    <span className={cx(s.stars)}>
-                        <StarRating
-                            rating={rating.value}
-                            maxRating={FilterRating.MAX_RATING}
-                        />
-                    </span>
-                    <Badge number={rating.filterCount} />
-                </div>
-            );
+                </span>
+                <Badge number={rating.filterCount} />
+            </div>);
         });
         return list;
-    };
+    }
 
     render() {
         return (
@@ -60,7 +55,7 @@ export class FilterRating extends Base {
             </div>
         );
     }
-};
+}
 
 FilterRating.propTypes = {
 };

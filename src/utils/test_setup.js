@@ -7,26 +7,25 @@ import { stores as homeStores, setup as homeSetup } from '../libs/home';
 import uiData from '../ui-data';
 
 process.env.NODE_ENV = 'test';
-process.env.SKELETON_DB_NAME = 'unit'; 
+process.env.SKELETON_DB_NAME = 'unit';
 
-// For components 
+// For components
 // Disable webpack-specific features for tests since
 // Mocha doesn't know what to do with them.
-['.css', '.scss', '.md', '.png', '.jpg', '.jpeg', '.gif', '.svg'].forEach(ext => {
-  require.extensions[ext] = () => null;
+['.css', '.scss', '.md', '.png', '.jpg', '.jpeg', '.gif', '.svg'].forEach((ext) => {
+    require.extensions[ext] = () => null;
 });
 
-before(function () {
+before(() => {
     chai.use(sinonChai);
     chai.use(chaiAsPromised);
     chai.should();
 });
 
-beforeEach(function () {
-
+beforeEach(() => {
     const store = homeSetup({
-        uiData: uiData,
-        lang: 'en'
+        uiData,
+        lang: 'en',
     });
     store.setCurrentUiData('reference');
 
@@ -35,8 +34,8 @@ beforeEach(function () {
     referenceSetup(null, null, null, null);
 });
 
-afterEach(function () {
-    //this.sandbox.restore();
+afterEach(() => {
+    // this.sandbox.restore();
 });
 
 

@@ -6,19 +6,17 @@
  * @return {string}
  */
 export function translate(str, params) {
-
-    //parameters
+    // parameters
     if (!params) {
         return str;
     }
 
-    for (var key in params) {
-        str = str.replace(new RegExp('#' + key + '#', 'g'), params[key]);
+    for (const key in params) {
+        str = str.replace(new RegExp(`#${key}#`, 'g'), params[key]);
     }
     return str;
-
 }
-    
+
 /**
  * @param {number} num
  * @param {object} strObj
@@ -26,22 +24,20 @@ export function translate(str, params) {
  * @return {string | null}
  */
 export function pluralize(num, strObj, params) {
-
     if (num === NaN || num === undefined || num === null) {
         throw new Error('pluralize: requires number parameter');
     }
 
-    const mergedParams = Object.assign({number: num}, params);
+    const mergedParams = Object.assign({ number: num }, params);
 
-    //pluralize
+    // pluralize
     if (num === 0) {
-        return translate(strObj.zero, mergedParams)
+        return translate(strObj.zero, mergedParams);
     } else if (num === 1) {
-        return translate(strObj.one, mergedParams)
+        return translate(strObj.one, mergedParams);
     } else if (num >= 2) {
-        return translate(strObj.twoOrMore, mergedParams)
+        return translate(strObj.twoOrMore, mergedParams);
     }
     return null;
-
 }
 

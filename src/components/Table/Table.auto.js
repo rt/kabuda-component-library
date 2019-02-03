@@ -1,9 +1,9 @@
 import webdriver from 'selenium-webdriver';
 import Base from '../Base.auto';
+
 const By = webdriver.By;
 
 export default class Table extends Base {
-
     getId() {
         return this.camelize(this.constructor.name);
     }
@@ -16,13 +16,13 @@ export default class Table extends Base {
         const trs = await el.findElements(By.css('tbody > tr'));
         return trs.length;
     }
-    
+
     /**
      * @return {Promise}
      */
     async getColCount() {
         const el = await this.getElement();
-        //based on header cols
+        // based on header cols
         const ths = await el.findElements(By.css('thead > tr > th'));
         return ths.length;
     }
@@ -33,11 +33,11 @@ export default class Table extends Base {
      */
     async getColHeaderText(index) {
         const el = await this.getElement();
-        //based on header cols
+        // based on header cols
         const th = await el.findElement(By.css(`thead > tr > th:nth-child(${index + 1})`));
         return th.getText();
     }
-    
+
     /**
      * @return {Promise}
      */

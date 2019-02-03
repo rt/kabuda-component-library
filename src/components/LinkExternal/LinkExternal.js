@@ -12,7 +12,6 @@ import Base from '../Base';
  * add <span class="sr-only">SRNOTATION_OPEN_IN_NEW_WINDOW</span>  > Link will open in new window.
 */
 export class LinkExternal extends Base {
-
     constructor(props) {
         super(props);
     }
@@ -21,26 +20,24 @@ export class LinkExternal extends Base {
         const { href, children, ...props } = this.props;
 
         if (href.startsWith('#')) {
-            //animation > https://github.com/madebysource/animated-scrollto/blob/master/animatedScrollTo.js
+            // animation > https://github.com/madebysource/animated-scrollto/blob/master/animatedScrollTo.js
             return (
                 <a data-e2e={this.e2e()} href={href} {...props}>
                     {children}
                 </a>
             );
-        } else {
-            return (
-                <a data-e2e={this.e2e()} href={href} {...props} rel="noopener" target="_blank">
-                    <span className={s.srOnly}>Link will open in new window.</span>
-                    {children}
-                </a>
-            );
         }
-        
+        return (
+            <a data-e2e={this.e2e()} href={href} {...props} rel="noopener" target="_blank">
+                <span className={s.srOnly}>Link will open in new window.</span>
+                {children}
+            </a>
+        );
     }
-};
+}
 
 LinkExternal.propTypes = {
-    href: PropTypes.string,  //url or #id
+    href: PropTypes.string, // url or #id
     children: PropTypes.node,
 };
 

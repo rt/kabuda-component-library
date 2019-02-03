@@ -6,17 +6,16 @@ import cx from 'classnames';
 import Base from '../Base';
 
 export class Toast extends Base {
-
     constructor(props) {
-        super(props)
+        super(props);
         this.state = {
-            show: true
+            show: true,
         };
     }
 
     componentDidMount() {
-        setTimeout(() => { 
-            let state = this.state;
+        setTimeout(() => {
+            const state = this.state;
             state.show = false;
             this.setState(state);
         }, 3000);
@@ -27,13 +26,12 @@ export class Toast extends Base {
             return (
                 <div className={cx(s.toast, s.show)} >{this.props.text}</div>
             );
-        } else {
-            return (
-                <div className={cx(s.toast)} >{this.props.text}</div>
-            );
         }
+        return (
+            <div className={cx(s.toast)} >{this.props.text}</div>
+        );
     }
-};
+}
 
 Toast.propTypes = {
 };

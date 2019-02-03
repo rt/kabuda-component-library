@@ -8,10 +8,9 @@ import FaThumbsUp from 'react-icons/lib/fa/thumbs-up';
 import FaThumbsDown from 'react-icons/lib/fa/thumbs-down';
 
 export class InputLike extends Base {
-
     constructor(props) {
         super(props);
-        
+
         this.handleClick = this.handleClick.bind(this);
     }
 
@@ -20,15 +19,13 @@ export class InputLike extends Base {
     }
 
     render() {
-
-        const { id, like, ...rest} = this.props;
+        const { id, like, ...rest } = this.props;
 
         if (like) {
-            return ( <FaThumbsUp data-e2e={this.e2e()} onClick={this.handleClick} className={cx(s.like)} />);
-        } else {
-            return ( <FaThumbsDown data-e2e={this.e2e()} onClick={this.handleClick} className={cx(s.like)} />);
+            return (<FaThumbsUp data-e2e={this.e2e()} onClick={this.handleClick} className={cx(s.like)} />);
         }
+        return (<FaThumbsDown data-e2e={this.e2e()} onClick={this.handleClick} className={cx(s.like)} />);
     }
-};
+}
 
 export default withStyles(s)(InputLike);

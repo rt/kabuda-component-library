@@ -1,12 +1,12 @@
 import NumberFormatter from './numberFormatter';
-import {expect} from 'chai';
+import { expect } from 'chai';
 
 describe('Number Formatter', () => {
-    //describe('getCurrencyFormattedNumber', () => {
-        //it('returns $5.50 when passed 5.5', () => {
-            //expect(NumberFormatter.getCurrencyFormattedNumber(5.5)).to.equal('$5.50');
-        //});
-    //});
+    // describe('getCurrencyFormattedNumber', () => {
+    // it('returns $5.50 when passed 5.5', () => {
+    // expect(NumberFormatter.getCurrencyFormattedNumber(5.5)).to.equal('$5.50');
+    // });
+    // });
 
     describe('isInt', () => {
         it('returns true when passed 0', () => {
@@ -28,13 +28,13 @@ describe('Number Formatter', () => {
         });
     });
 
-    //describe('getFormattedNumber', () => {
-        //it('returns 0 if passed 0', () => {
-            //expect(NumberFormatter.getFormattedNumber(0)).to.equal(0);
-        //});
+    // describe('getFormattedNumber', () => {
+    // it('returns 0 if passed 0', () => {
+    // expect(NumberFormatter.getFormattedNumber(0)).to.equal(0);
+    // });
 
-        //it('returns empty string if passed empty string', () => {
-            //expect(NumberFormatter.getFormattedNumber('')).to.equal('');
-        //});
-    //});
+    // it('returns empty string if passed empty string', () => {
+    // expect(NumberFormatter.getFormattedNumber('')).to.equal('');
+    // });
+    // });
 });

@@ -5,7 +5,6 @@ import s from './Label.css';
 import Base from '../Base';
 
 export class Label extends Base {
-
     render() {
         return (
             <label data-e2e={this.e2e()} htmlFor={this.props.for} className={s.label}>
@@ -13,6 +12,6 @@ export class Label extends Base {
             </label>
         );
     }
-};
+}
 
 export default withStyles(s)(Label);

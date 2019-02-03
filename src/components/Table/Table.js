@@ -7,21 +7,17 @@ import Base from '../Base';
 import { utils } from 'kabuda-liquid';
 
 export class Table extends Base {
-    
     constructor(props) {
         super(props);
-
     }
 
     getHeaderText = (displayField) => {
-        //if there's a text property use that
+        // if there's a text property use that
         if (displayField.text) {
             return this.translate(displayField.text);
         }
 
-        const formField = this.props.form.fields.find(field => {
-            return field.key === displayField.path;
-        });
+        const formField = this.props.form.fields.find(field => field.key === displayField.path);
 
         if (formField) {
             return formField.fieldName;
@@ -29,13 +25,9 @@ export class Table extends Base {
     }
 
     getHeader = () => {
-
         if (this.props.displayFields) {
-            return this.props.displayFields.map((displayField, index) => {
-                return <th key={index}>{this.getHeaderText(displayField)}</th>;
-            });
-        } 
-
+            return this.props.displayFields.map((displayField, index) => <th key={index}>{this.getHeaderText(displayField)}</th>);
+        }
     }
 
     rowClick = (e, item, index) => {
@@ -43,27 +35,25 @@ export class Table extends Base {
     }
 
     getItems = () => {
-
         function isEven(num) {
             return num % 2 === 0;
         }
 
         return this.props.items.map((item, index) => {
-            let classes = [];
+            const classes = [];
             if (this.props.selectedIndex === index) {
                 classes.push(s.selectedRow);
             } else {
                 classes.push(isEven(index) ? s.evenRow : s.oddRow);
             }
 
-            return <tr className={cx(...classes)} onClick={(e) => {this.rowClick(e, item, index)}} key={index}>{this.getRow(item)}</tr>;
+            return <tr className={cx(...classes)} onClick={(e) => { this.rowClick(e, item, index); }} key={index}>{this.getRow(item)}</tr>;
         });
     }
 
     getRow = (item) => {
-
         if (this.props.displayFields) {
-            return this.props.displayFields.map((displayField, index)=> {
+            return this.props.displayFields.map((displayField, index) => {
                 let val = null;
                 if (displayField.fn) {
                     val = displayField.fn(item);
@@ -74,7 +64,7 @@ export class Table extends Base {
                 }
                 return <td key={index}>{val}</td>;
             });
-        } 
+        }
     }
 
     render() {
@@ -89,7 +79,7 @@ export class Table extends Base {
             </table>
         );
     }
-};
+}
 
 Table.propTypes = {
     items: PropTypes.array,

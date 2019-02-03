@@ -7,22 +7,17 @@ import Base from '../Base';
 import Button from '../Button';
 
 export class ButtonGroup extends Base {
-    
     constructor(props) {
         super(props);
     }
 
-    getButtons = () => {
-        return this.props.buttons.map((btnConfig, index) => {
-            return <Button
-                key={index}
-                onClick={btnConfig.onClick}
-                variant={btnConfig.variant}
-                size={btnConfig.size}
-            >{btnConfig.text}
-            </Button>
-        });
-    }
+    getButtons = () => this.props.buttons.map((btnConfig, index) => (<Button
+        key={index}
+        onClick={btnConfig.onClick}
+        variant={btnConfig.variant}
+        size={btnConfig.size}
+    >{btnConfig.text}
+    </Button>))
 
     render() {
         return (
@@ -31,7 +26,7 @@ export class ButtonGroup extends Base {
             </div>
         );
     }
-};
+}
 
 ButtonGroup.propTypes = {
     buttons: PropTypes.array,

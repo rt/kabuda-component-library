@@ -6,22 +6,23 @@ import cx from 'classnames';
 import Base from '../Base';
 
 export class InputCheckBoxCustom extends Base {
-    
     constructor(props) {
         super(props);
-        
+
         this.handleChange = this.handleChange.bind(this);
     }
 
     handleChange(e) {
-        //might be used in delegation
+        // might be used in delegation
         if (this.props.onChange) {
             this.props.onChange(this.props.name, !this.props.checked);
         }
     }
 
     render() {
-        const { id, name, checked, ...rest} = this.props;
+        const {
+            id, name, checked, ...rest
+        } = this.props;
 
         return (
             <span className={s.root}>
@@ -33,11 +34,11 @@ export class InputCheckBoxCustom extends Base {
                     onChange={this.handleChange}
                     data-e2e={this.e2e()}
                 />
-              <span className={s.checkmark} onClick={this.handleChange}></span>
+                <span className={s.checkmark} onClick={this.handleChange} />
             </span>
         );
     }
-};
+}
 
 InputCheckBoxCustom.propTypes = {
     id: PropTypes.string,

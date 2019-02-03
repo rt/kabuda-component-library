@@ -11,7 +11,6 @@ import Button from '../Button';
  * Modal does not manage itself, implementor must manage the show/hide
  */
 export class Modal extends Base {
-
     constructor(props) {
         super(props);
         this.getButtons = this.getButtons.bind(this);
@@ -20,7 +19,6 @@ export class Modal extends Base {
     }
 
     componentDidMount() {
-        
         if (this.closeBtn) {
             this.closeBtn.focus();
         }
@@ -30,7 +28,7 @@ export class Modal extends Base {
         this.props.onCloseBtnClick(e);
         e.stopPropagation();
     }
-    
+
     handleContentClick(e) {
         e.stopPropagation();
     }
@@ -47,7 +45,7 @@ export class Modal extends Base {
         }
         return (
             <div className={cx(s.header)}>
-                <button data-e2e="closeBtn" className={s.closebtn} ref={(button) => {this.closeBtn = button }}><span onClick={this.handleClose.bind(this)}>&times;</span></button>
+                <button data-e2e="closeBtn" className={s.closebtn} ref={(button) => { this.closeBtn = button; }}><span onClick={this.handleClose.bind(this)}>&times;</span></button>
                 <h1 data-e2e="title" id={this.props.id}>{this.props.title}   <small className={s.smallText}>small text</small></h1>
             </div>
         );
@@ -66,16 +64,14 @@ export class Modal extends Base {
     }
 
     getButtons() {
-        return this.props.buttons.map((button, index) => {
-            return (
-                <Button 
-                    key={index}
+        return this.props.buttons.map((button, index) => (
+            <Button
+                key={index}
 
-                >
+            >
                 btn
-                </Button>
-            );
-        });
+            </Button>
+        ));
     }
 
     render() {
@@ -91,14 +87,14 @@ export class Modal extends Base {
             </div>
         );
     }
-};
+}
 
 Modal.propTypes = {
-    id: PropTypes.string.isRequired,    //aria-labelledby
-    buttons: PropTypes.array,           //Button config
+    id: PropTypes.string.isRequired, // aria-labelledby
+    buttons: PropTypes.array, // Button config
     title: PropTypes.string,
     onCloseBtnClick: PropTypes.func,
-    isStatic: PropTypes.bool            //clicking the backdrop will not dismiss
+    isStatic: PropTypes.bool, // clicking the backdrop will not dismiss
 };
 
 export default withStyles(s)(Modal);

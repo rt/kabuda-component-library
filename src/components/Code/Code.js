@@ -5,7 +5,6 @@ import s from './Code.css';
 import Base from '../Base';
 
 export class Code extends Base {
-    
     constructor(props) {
         super(props);
     }
@@ -19,7 +18,7 @@ export class Code extends Base {
             </pre>
         );
     }
-};
+}
 
 Code.propTypes = {
     text: PropTypes.string,

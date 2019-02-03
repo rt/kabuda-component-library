@@ -7,10 +7,10 @@ import crypto from 'crypto';
  * @function
  * @param {number} length - Length of the random string.
  */
-let genRandomString = function(length){
-    return crypto.randomBytes(Math.ceil(length/2))
+const genRandomString = function (length) {
+    return crypto.randomBytes(Math.ceil(length / 2))
         .toString('hex') /** convert to hexadecimal format */
-        .slice(0,length);   /** return required number of characters */
+        .slice(0, length); /** return required number of characters */
 };
 /*
  * hash password with sha512.
@@ -18,24 +18,23 @@ let genRandomString = function(length){
  * @param {string} password - List of required fields.
  * @param {string} salt - Data to be validated.
  */
-let sha512 = function(password, salt){
-    let hash = crypto.createHmac('sha512', salt); /** Hashing algorithm sha512 */
+const sha512 = function (password, salt) {
+    const hash = crypto.createHmac('sha512', salt); /** Hashing algorithm sha512 */
     hash.update(password);
-    let value = hash.digest('hex');
+    const value = hash.digest('hex');
     return {
-        salt:salt,
-        passwordHash:value
+        salt,
+        passwordHash: value,
     };
 };
 
 export default class User extends models.Model {
-
     constructor(o) {
         super(o);
 
         this.roles = this.roles || [];
         this.permissions = this.permissions || [];
-        this.userId = typeof(this.userId) === 'number' ? this.userId : null;
+        this.userId = typeof (this.userId) === 'number' ? this.userId : null;
         this.passwordHash = this.passwordHash || null;
         this.passwordSalt = this.passwordSalt || null;
     }
@@ -45,7 +44,6 @@ export default class User extends models.Model {
      * @param {string} password
      */
     generatePasswordHash(password) {
-
         const salt = genRandomString(16); /** Gives us salt of length 16 */
         const passwordData = sha512(password, salt);
         this.passwordHash = passwordData.passwordHash;
@@ -60,7 +58,7 @@ export default class User extends models.Model {
         const passwordData = sha512(password, this.passwordSalt);
         return this.passwordHash === passwordData.passwordHash;
     }
-    
+
     /**
      * @return {boolean}
      */
@@ -75,7 +73,7 @@ export default class User extends models.Model {
     isInRole(role) {
         return this.roles.indexOf(role) !== -1;
     }
-    
+
     /**
      * @param {string} permission
      * @return {boolean}

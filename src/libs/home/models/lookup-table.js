@@ -1,7 +1,6 @@
 import { models } from 'kabuda-liquid';
 
 export default class LookupTable extends models.Model {
-
     constructor(o) {
         super(o);
 
@@ -10,11 +9,8 @@ export default class LookupTable extends models.Model {
     }
 
     getName(table, key) {
-        const rec = this[table].find((item) => {
-            return item.key === key;
-        });
+        const rec = this[table].find(item => item.key === key);
 
         return rec ? rec.name : key;
     }
-
 }

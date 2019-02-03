@@ -6,7 +6,6 @@ import cx from 'classnames';
 import Base from '../Base';
 
 export class LoadingPanel extends Base {
-
     constructor(props) {
         super(props);
 
@@ -18,10 +17,9 @@ export class LoadingPanel extends Base {
             return (
                 <Loader />
             );
-        } else {
-            return this.props.children;
         }
-    };
+        return this.props.children;
+    }
 
     render() {
         return (
@@ -30,7 +28,7 @@ export class LoadingPanel extends Base {
             </div>
         );
     }
-};
+}
 
 LoadingPanel.propTypes = {
 };

@@ -11,14 +11,13 @@ import { models, actions as homeActions } from '../../libs/home';
 const AppState = models.AppState;
 
 class SearchInput extends Base {
-    
     constructor(props) {
         super(props);
 
         this.overlayKey = null;
-        
+
         this.state = {
-            searchContentTimestamp: 0
+            searchContentTimestamp: 0,
         };
 
         this.handleChange = this.handleChange.bind(this);
@@ -26,20 +25,20 @@ class SearchInput extends Base {
     }
 
     componentWillMount() {
-        homeActions.appState.getOverlayId().then(id => {
+        homeActions.appState.getOverlayId().then((id) => {
             this.overlayKey = id;
         });
     }
 
     handleChange(name, value) {
-        let state = this.state;
-        
+        const state = this.state;
+
         homeActions.appState.setOverlayId(this.overlayKey, true);
 
         value = value.toLowerCase();
 
         state.dropDownList = this.uiData.routes.filter((routeObj) => {
-            let str = routeObj.text.toLowerCase(); //could add route, etc
+            const str = routeObj.text.toLowerCase(); // could add route, etc
             return str.indexOf(value) !== -1;
         });
         this.setState(state);
@@ -47,29 +46,28 @@ class SearchInput extends Base {
 
     getDropdown() {
         if (this.overlayKey && this.props.appState.overlays[this.overlayKey]) {
-            return ( 
+            return (
                 <div className={cx(s.dropdownContent, s.container)}>
                     <NavList
                         array={this.state.dropDownList}
                     />
                 </div>
-                );
-        } else {
-            return (<div />);
+            );
         }
+        return (<div />);
     }
-    
-    render() { 
+
+    render() {
         return (
-        <div data-e2e={this.e2e()} >
-            <InputText 
-                name="searchInput"
-                placeholder="Search ..."
-                onChange={this.handleChange}
-                onBlur={()=>{}}
-            />
-            {this.getDropdown()}
-        </div>
+            <div data-e2e={this.e2e()} >
+                <InputText
+                    name="searchInput"
+                    placeholder="Search ..."
+                    onChange={this.handleChange}
+                    onBlur={() => {}}
+                />
+                {this.getDropdown()}
+            </div>
         );
     }
 }

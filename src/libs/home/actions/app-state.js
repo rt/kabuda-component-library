@@ -4,8 +4,8 @@ export function getOverlayId(defaultValue) {
     return new Promise((resolve, reject) => {
         const store = getStateStore();
         const appState = store.getAppState();
-        appState.overlayId++
-        const id = 'overlay' + appState.overlayId;
+        appState.overlayId++;
+        const id = `overlay${appState.overlayId}`;
         appState.overlays[id] = defaultValue || false;
         store.setAppState(appState);
         resolve(id);
@@ -26,7 +26,7 @@ export function closeOverlays() {
     return new Promise((resolve, reject) => {
         const store = getStateStore();
         const appState = store.getAppState();
-        for (let key in appState.overlays) {
+        for (const key in appState.overlays) {
             appState.overlays[key] = false;
         }
         store.setAppState(appState);

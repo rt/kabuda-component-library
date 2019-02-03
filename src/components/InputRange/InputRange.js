@@ -1,4 +1,4 @@
-//http://thenewcode.com/757/Playing-With-The-HTML5-range-Slider-Input
+// http://thenewcode.com/757/Playing-With-The-HTML5-range-Slider-Input
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import React from 'react';
 import PropTypes from 'prop-types';
@@ -7,7 +7,6 @@ import cx from 'classnames';
 import Base from '../Base';
 
 export class InputRange extends Base {
-
     constructor(props) {
         super(props);
 
@@ -19,24 +18,25 @@ export class InputRange extends Base {
     }
 
     render() {
-
-        const { id, min, max, value, ...rest} = this.props;
+        const {
+            id, min, max, value, ...rest
+        } = this.props;
 
         return (
-                <input 
-                    data-e2e={this.e2e()}
-                    id={id} 
-                    className={s.slider}
-                    type="range" 
-                    min={min} 
-                    max={max} 
-                    value={value} 
-                    step="1"
-                    onChange={this.handleInput}
-                />
+            <input
+                data-e2e={this.e2e()}
+                id={id}
+                className={s.slider}
+                type="range"
+                min={min}
+                max={max}
+                value={value}
+                step="1"
+                onChange={this.handleInput}
+            />
         );
     }
-};
+}
 
 InputRange.propTypes = {
     id: PropTypes.string,

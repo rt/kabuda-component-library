@@ -1,7 +1,6 @@
 import RouteBase from '../../../RouteBase/RouteBase.auto';
 
 export default class Home extends RouteBase {
-
     getPath() {
         return '/';
     }
@@ -13,6 +12,4 @@ export default class Home extends RouteBase {
     getFeature1() {
         return this.getText('feature1');
     }
-
-
 }

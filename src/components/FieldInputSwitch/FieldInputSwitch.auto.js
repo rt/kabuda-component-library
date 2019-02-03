@@ -1,7 +1,6 @@
 import FieldBase from '../FieldBase/FieldBase.auto';
 
 export default class FieldInputText extends FieldBase {
-
     getId() {
         return this.camelize(this.constructor.name);
     }
@@ -9,5 +8,4 @@ export default class FieldInputText extends FieldBase {
     setInputValue(value) {
         return this.setValue('inputText', value);
     }
-    
 }

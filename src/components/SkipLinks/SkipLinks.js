@@ -10,7 +10,6 @@ import Base from '../Base';
  * You should probably put tabindex="-1" on the target element to make it focus-able
 */
 export class SkipLinks extends Base {
-
     constructor(props) {
         super(props);
 
@@ -18,17 +17,15 @@ export class SkipLinks extends Base {
     }
 
     getList() {
-        return this.props.list.map(item => {
-            return (
-                <li>
-                    <a id={item.id} href={item.href} className={s.skip}>{item.text}</a>
-                </li>
-                );
-        });
+        return this.props.list.map(item => (
+            <li>
+                <a id={item.id} href={item.href} className={s.skip}>{item.text}</a>
+            </li>
+        ));
     }
 
     render() {
-        const { ...rest} = this.props;
+        const { ...rest } = this.props;
 
         return (
             <ul
@@ -39,7 +36,7 @@ export class SkipLinks extends Base {
             </ul>
         );
     }
-};
+}
 
 SkipLinks.propTypes = {
 };

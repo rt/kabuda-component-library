@@ -11,11 +11,14 @@ import Base from '../Base';
  * always use <button> not <input type="button" />
  */
 export class Button extends Base {
-
-    constructor(props) {
-        super(props);
-
-    }
+    static propTypes = {
+        type: PropTypes.string,
+        variant: PropTypes.string,
+        className: PropTypes.string,
+        onClick: PropTypes.func,
+        children: PropTypes.node,
+        buttonRef: PropTypes.func, // this is if the parent component needs to set focus on the button (dom el)
+    };
 
     handleClick = (e) => {
         this.props.onClick(e, this.props.data);
@@ -23,7 +26,6 @@ export class Button extends Base {
     }
 
     render() {
-
         const variant = this.props.variant || 'default';
         const size = this.props.size || '';
         const block = this.props.isBlock ? 'block' : '';
@@ -35,21 +37,13 @@ export class Button extends Base {
                 disabled={this.props.disabled}
                 className={cls}
                 onClick={this.handleClick}
-                ref={this.props.buttonRef}  
+                ref={this.props.buttonRef}
             >
                 {this.props.children}
             </button>
         );
     }
-};
+}
 
-Button.propTypes = {
-    type: PropTypes.string,
-    variant: PropTypes.string,
-    className: PropTypes.string,
-    onClick: PropTypes.func,
-    children: PropTypes.node,
-    buttonRef: PropTypes.func  //this is if the parent component needs to set focus on the button (dom el)
-};
 
 export default withStyles(s)(Button);

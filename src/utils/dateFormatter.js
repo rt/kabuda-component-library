@@ -1,20 +1,18 @@
 import moment from 'moment';
 
 export default class DateFormatter {
-
     /**
-     * @param {Date|number} date 
+     * @param {Date|number} date
      * @param {boolean} showDay
      */
-    static formatDate (date, showDay) {
-        var dateFormat = 'MM/DD/YY';
+    static formatDate(date, showDay) {
+        let dateFormat = 'MM/DD/YY';
 
         if (showDay) {
-            dateFormat = 'ddd, ' + dateFormat;
+            dateFormat = `ddd, ${dateFormat}`;
         }
 
         return moment(date).utc().format(dateFormat);
-
     }
 
     /**
@@ -24,12 +22,10 @@ export default class DateFormatter {
      * @param {boolean} options.addFormattingMarkup
      */
     static formatTime(date, options) {
-        var timeFormat = 'h:mm:ss a'
+        const timeFormat = 'h:mm:ss a';
 
-        var formattedDate = moment(date).format(timeFormat);
+        const formattedDate = moment(date).format(timeFormat);
 
         return formattedDate;
-
     }
-
 }

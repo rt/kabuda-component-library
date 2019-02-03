@@ -8,8 +8,6 @@ import Link from '../../../../components/Link';
 
 
 class Home extends Base {
-    
-
     render() {
         return (
             <div data-e2e={this.e2e()} className={s.root}>

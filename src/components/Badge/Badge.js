@@ -6,18 +6,17 @@ import cx from 'classnames';
 import Base from '../Base';
 
 export class Badge extends Base {
-    
     constructor(props) {
         super(props);
     }
 
     render() {
-        const { number, type, ...rest} = this.props;
+        const { number, type, ...rest } = this.props;
 
         let cls = null;
         switch (type) {
-            default:
-                cls = cx(s.tag, s.className);
+        default:
+            cls = cx(s.tag, s.className);
         }
 
         return (
@@ -26,7 +25,7 @@ export class Badge extends Base {
             </span>
         );
     }
-};
+}
 
 Badge.propTypes = {
     number: PropTypes.oneOfType([

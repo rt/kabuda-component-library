@@ -1,14 +1,14 @@
 import webdriver from 'selenium-webdriver';
+
 const until = webdriver.until;
 const By = webdriver.By;
 
 export default class Base {
-
     /**
      * @constructor
      * @param {webdriver} driver
      * @param {string} parentSelector
-     * @param {string} childSelector : sometimes we specify nth-child ... thus need selector not just childId 
+     * @param {string} childSelector : sometimes we specify nth-child ... thus need selector not just childId
      */
     constructor(driver, parentSelector, childSelector) {
         this.driver = driver;
@@ -24,7 +24,7 @@ export default class Base {
     }
 
     camelize(name) {
-        return name.replace(/^[A-Z]/, (ch) => { return ch.toLowerCase(); });
+        return name.replace(/^[A-Z]/, ch => ch.toLowerCase());
     }
 
     /**
@@ -41,7 +41,7 @@ export default class Base {
      * @return {string}
      */
     _getChildSelector(childId) {
-        return this.selector + this.id2Selector(childId)
+        return this.selector + this.id2Selector(childId);
     }
 
     id2Selector(id) {
@@ -54,16 +54,16 @@ export default class Base {
     getElement() {
         return this.driver.findElement(By.css(this.selector));
     }
-    
+
     /**
      * need to use xpath
      * @return {Promise}
      */
-    //getElementByText(text) {
-        ////xpath: /[>[@data-e2e="aaa"]/*[1]//[@data-e2e="bbb"]
-        //return this.driver.findElement(By.xpath(this.selector));
-    //}
-    
+    // getElementByText(text) {
+    // //xpath: /[>[@data-e2e="aaa"]/*[1]//[@data-e2e="bbb"]
+    // return this.driver.findElement(By.xpath(this.selector));
+    // }
+
     /**
      * @param {*} : component class
      * @return {Promise}
@@ -82,7 +82,7 @@ export default class Base {
     findElement(childId) {
         return this.driver.findElement(By.css(this._getChildSelector(childId)));
     }
-    
+
     /**
      * @param {string} childId
      * @param {string} value
@@ -101,14 +101,14 @@ export default class Base {
     click(childId) {
         return this.findElement(childId).click();
     }
-    
+
     /**
      * @return {Promise}
      */
     rootLoaded() {
         return this.driver.wait(until.elementLocated(By.css(this.selector)));
     }
-    
+
     /**
      * @return {Promise}
      */
@@ -117,7 +117,7 @@ export default class Base {
             const elements = await this.driver.findElements(By.css(this.selector));
             return elements.length === 0;
         });
-        //}, 10000, 'The element was still present when it should have disappeared.');
+        // }, 10000, 'The element was still present when it should have disappeared.');
     }
 
     /**
@@ -135,7 +135,7 @@ export default class Base {
      * @return {Promise}
      */
     getAllElements(childCssSelector) {
-        const childSelector = this.selector + ' ' + childCssSelector;
+        const childSelector = `${this.selector} ${childCssSelector}`;
         return this.driver.findElements(By.css(childSelector));
     }
 
@@ -145,7 +145,7 @@ export default class Base {
      * @return {Promise}
      */
     async getElementAt(index, childCssSelector) {
-        const childSelector = this.selector + ' ' + childCssSelector + `:nth-child(${index + 1})`;
+        const childSelector = `${this.selector} ${childCssSelector}:nth-child(${index + 1})`;
         await this.driver.wait(until.elementLocated(By.css(childSelector)));
         return this.driver.findElement(By.css(childSelector));
     }
@@ -156,11 +156,9 @@ export default class Base {
      * @return {Promise}
      */
     async getAllComponents(Component) {
-        const childSelector = this.selector + ' ' + this._getChildSelector(this.camelize(Component.name));
+        const childSelector = `${this.selector} ${this._getChildSelector(this.camelize(Component.name))}`;
         const elements = await this.driver.findElements(By.css(childSelector));
-        return elements.map((ele, index) => {
-            return new Component(this.driver, this.selector, ' ' + this._getChildSelector(this.camelize(Component.name)) + ':nth-child(' + index + ')');
-        });
+        return elements.map((ele, index) => new Component(this.driver, this.selector, ` ${this._getChildSelector(this.camelize(Component.name))}:nth-child(${index})`));
     }
 
     /**
@@ -172,7 +170,7 @@ export default class Base {
         const relativeSelector = ` [data-e2e="${this.camelize(Component.name)}"]:nth-child(${index + 1})`;
         const childSelector = this.selector + relativeSelector;
         await this.driver.wait(until.elementLocated(By.css(childSelector)));
-        const component =  new Component(this.driver, this.selector, relativeSelector); 
+        const component = new Component(this.driver, this.selector, relativeSelector);
         await component.rootLoaded();
         return component;
     }
@@ -187,10 +185,8 @@ export default class Base {
         const relativeSelector = ` [data-e2e="${childId}"]:nth-child(${index + 1}) [data-e2e="${this.camelize(Component.name)}"]`;
         const childSelector = this.selector + relativeSelector;
         await this.driver.wait(until.elementLocated(By.css(childSelector)));
-        const component =  new Component(this.driver, this.selector, relativeSelector); 
+        const component = new Component(this.driver, this.selector, relativeSelector);
         await component.rootLoaded();
         return component;
     }
-
-    
 }

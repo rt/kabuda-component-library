@@ -1,6 +1,6 @@
 import withStyles from 'isomorphic-style-loader/lib/withStyles';
 import ReactTransitionGroup from 'react-transition-group';
-import ReactDOM from 'react-dom'
+import ReactDOM from 'react-dom';
 import React from 'react';
 import PropTypes from 'prop-types';
 import s from './Drawer.css';
@@ -11,22 +11,21 @@ import Base from '../Base';
 /**
 */
 export class Drawer extends Base {
-
     constructor(props) {
         super(props);
     }
 
     componentDidMount() {
-        //const el = ReactDOM.findDOMNode(this.refs.rootDiv)
-        //const style = window.getComputedStyle(el, null);
-        //this.refs.rootDiv.style.height = style.getPropertyValue('height');
-        //setTimeout(() => {
-            //this.refs.rootDiv.style.display = 'block';
-            //this.refs.rootDiv.style.height = '0px';
-            //setTimeout(() => {
-                //this.refs.rootDiv.style.height = '0px';
-            //}, 2000);
-        //}, 2000);
+        // const el = ReactDOM.findDOMNode(this.refs.rootDiv)
+        // const style = window.getComputedStyle(el, null);
+        // this.refs.rootDiv.style.height = style.getPropertyValue('height');
+        // setTimeout(() => {
+        // this.refs.rootDiv.style.display = 'block';
+        // this.refs.rootDiv.style.height = '0px';
+        // setTimeout(() => {
+        // this.refs.rootDiv.style.height = '0px';
+        // }, 2000);
+        // }, 2000);
     }
     render() {
         return (
@@ -37,7 +36,7 @@ export class Drawer extends Base {
             </div>
         );
     }
-};
+}
 
 Drawer.propTypes = {
     open: PropTypes.bool,

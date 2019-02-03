@@ -4,7 +4,6 @@ import { setupStore } from '../stores/data-store';
 const expect = chai.expect;
 
 describe('data-store', () => {
-
     let store;
     before(() => {
         store = setupStore();
@@ -15,34 +14,31 @@ describe('data-store', () => {
     });
 
     describe('#createUiData', () => {
-
         it('should create all apps ui data for a given language, then set current app', () => {
             store.createUiData({
                 apps: {
                     a: {
                         en: {},
-                        ja: {}
+                        ja: {},
                     },
                     b: {
                         en: {},
-                        ja: {}
-                    }
-                }
+                        ja: {},
+                    },
+                },
             }, 'en');
 
             store.setCurrentUiData('b');
 
             let currentUiData = store.getUiData();
-            
+
             expect(currentUiData.app).to.eq('b');
             expect(currentUiData.isCurrentApp).to.be.true;
-            
+
             store.setCurrentUiData('a');
             currentUiData = store.getUiData();
             expect(currentUiData.app).to.eq('a');
             expect(currentUiData.isCurrentApp).to.be.true;
         });
-
     });
-
 });

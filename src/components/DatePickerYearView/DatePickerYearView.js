@@ -7,7 +7,6 @@ import Base from '../Base';
 import DayPicker from 'react-day-picker';
 
 class DatePickerYearView extends Base {
-
     constructor(props) {
         super(props);
 
@@ -15,7 +14,7 @@ class DatePickerYearView extends Base {
     }
 
     handleDayClick(day, { selected }) {
-        //if allowing unselection
+        // if allowing unselection
         day = selected ? undefined : day;
         this.props.onDayClick(day, selected);
     }
@@ -26,18 +25,18 @@ class DatePickerYearView extends Base {
                 <DayPicker
                     onDayClick={this.handleDayClick}
                     selectedDays={[this.props.selectedDay]}
-                    month={new Date(2017,0)}
-                    numberOfMonths={12} 
+                    month={new Date(2017, 0)}
+                    numberOfMonths={12}
                     canChangeMonth={false}
-                    fixedWeeks 
+                    fixedWeeks
                 />
             </div>
         );
     }
-};
+}
 
 DatePickerYearView.propTypes = {
-    onDayClick: PropTypes.func
+    onDayClick: PropTypes.func,
 };
 
 export default withStyles(s)(DatePickerYearView);

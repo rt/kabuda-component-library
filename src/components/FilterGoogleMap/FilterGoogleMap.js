@@ -4,19 +4,17 @@ import PropTypes from 'prop-types';
 import s from './FilterGoogleMap.css';
 import cx from 'classnames';
 import Base from '../Base';
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 /**
  * AIzaSyAuYSkK3MVTXmNHR6Oc9ezijblKSQWrGdw
  */
 export class FilterGoogleMap extends Base {
-
-
     constructor(props) {
         super(props);
 
         this.state = {
-            selectedPlace: {}
+            selectedPlace: {},
         };
 
         this.onMarkerClick = this.onMarkerClick.bind(this);
@@ -34,8 +32,10 @@ export class FilterGoogleMap extends Base {
             <div data-e2e={this.e2e()} className={s.root}>
                 <Map google={this.props.google} zoom={14}>
 
-                    <Marker onClick={this.onMarkerClick}
-                        name={'Current location'} />
+                    <Marker
+                        onClick={this.onMarkerClick}
+                        name="Current location"
+                    />
 
                     <InfoWindow onClose={this.onInfoWindowClose}>
                         <div>
@@ -46,12 +46,11 @@ export class FilterGoogleMap extends Base {
             </div>
         );
     }
-
-};
+}
 
 FilterGoogleMap.propTypes = {
 };
 
 export default withStyles(s)(GoogleApiWrapper({
-      apiKey: 'AIzaSyAuYSkK3MVTXmNHR6Oc9ezijblKSQWrGdw'
-})(FilterGoogleMap))
+    apiKey: 'AIzaSyAuYSkK3MVTXmNHR6Oc9ezijblKSQWrGdw',
+})(FilterGoogleMap));

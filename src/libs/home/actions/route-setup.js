@@ -4,9 +4,9 @@ import { getStateStore } from '../stores/state-store';
 import User from '../models/user';
 import RouteDefinition from '../models/route-definition';
 
-//setup routes execute on both the server and client
-//try to think about SEO
-//data is rendered but no state
+// setup routes execute on both the server and client
+// try to think about SEO
+// data is rendered but no state
 
 export function init() {
     return new Promise((resolve, reject) => {
@@ -17,11 +17,11 @@ export function init() {
                 'Content-Type': 'application/json',
             },
             credentials: 'include',
-        }).then(res => {
+        }).then((res) => {
             res.json().then((res) => {
                 getStore().createUser(new User(res.data.user));
                 resolve();
-            }).catch(e => {
+            }).catch((e) => {
                 resolve();
             });
         });
@@ -41,7 +41,7 @@ export function addRecentlyViewedRoute(route, name) {
         const manager = stateStore.getRouteHistoryManager();
         manager.addRecentlyViewedRoute(new RouteDefinition({
             text: name,
-            route: route
+            route,
         }));
         stateStore.updateRouteHistoryManager(manager);
         resolve();

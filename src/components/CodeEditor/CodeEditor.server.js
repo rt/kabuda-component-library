@@ -6,17 +6,16 @@ import cx from 'classnames';
 import Base from '../Base';
 
 class CodeEditor extends Base {
-
     constructor(props) {
         super(props);
     }
 
     render() {
         return (
-            <div data-e2e={this.e2e()} ></div>
+            <div data-e2e={this.e2e()} />
         );
     }
-};
+}
 
 CodeEditor.propTypes = {
 };

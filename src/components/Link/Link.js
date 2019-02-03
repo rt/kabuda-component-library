@@ -11,20 +11,18 @@ const getStateStore = stores.stateStore.getStateStore;
  * a link might not have enough description for a11y, allow aria-label attribute
 */
 class Link extends Base {
-    
     static contextTypes = {
-        history: PropTypes.object
+        history: PropTypes.object,
     };
 
     constructor(props) {
         super(props);
-        
     }
 
     handleClick = (event) => {
         if (this.props.onClick) {
             this.props.onClick(event);
-            //return control to caller
+            // return control to caller
             return;
         }
 
@@ -46,7 +44,9 @@ class Link extends Base {
     };
 
     render() {
-        const { to, children, ignoreHistory, ...props } = this.props;
+        const {
+            to, children, ignoreHistory, ...props
+        } = this.props;
         return <a data-e2e={this.e2e()} href={to} {...props} onClick={this.handleClick}>{children}</a>;
     }
 }

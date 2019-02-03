@@ -9,12 +9,11 @@ import Base from '../Base';
  * - make image optional
 */
 class Chip extends Base {
-
     constructor(props) {
         super(props);
 
-        this.state = {}
-        this.handleClose = () => { this.setState( {closed: true} ) };
+        this.state = {};
+        this.handleClose = () => { this.setState({ closed: true }); };
     }
 
     render() {

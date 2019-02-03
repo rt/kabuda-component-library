@@ -5,27 +5,25 @@ import { models } from 'kabuda-liquid';
  * but also used for recently viewed routes.
  */
 export default class RouteDefinition extends models.Model {
-
     /**
      * @params {object} o
      */
     constructor(o) {
         super(o);
 
-        /**@type {string}*/
+        /** @type {string} */
         this.text = this.text || null;
 
-        /**@type {string}*/
+        /** @type {string} */
         this.route = this.route || null;
-        
-        /**@type {string}*/
+
+        /** @type {string} */
         this.category = this.category || null;
 
-        /**@type {string}*/
+        /** @type {string} */
         this.icon = this.icon || null;
 
-        /**@type {Date}*/
+        /** @type {Date} */
         this.timestamp = this.timestamp || new Date();
     }
-
 }

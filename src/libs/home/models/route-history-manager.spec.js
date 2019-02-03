@@ -6,27 +6,22 @@ import RouteHistory from './route-history';
 const expect = chai.expect;
 
 describe('RouteHistoryManager', () => {
-
     let model;
 
     describe('#deserialize', () => {
-
         it('should deserialize properties', () => {
             model = new RouteHistoryManager({
-                historyRoutes: [{path: 'blah'}],
-                recentlyViewedRoutes: [{text: 'Item Name'}],
+                historyRoutes: [{ path: 'blah' }],
+                recentlyViewedRoutes: [{ text: 'Item Name' }],
             });
 
             expect(model.historyRoutes[0]).to.be.instanceof(RouteHistory);
             expect(model.recentlyViewedRoutes[0]).to.be.instanceof(RouteDefinition);
         });
-
     });
 
     describe('#getBreadCrumbRoutes', () => {
-
         it('should return array of route definitions for a given path', () => {
-
             const path = '/reference/itemDetails';
             const routeDefinitions = [
                 {
@@ -51,7 +46,6 @@ describe('RouteHistoryManager', () => {
         });
 
         it('should look thru recently viewed routes to get item text ', () => {
-
             const path = '/reference/itemDetails/ID2';
             const routeDefinitions = [
                 {
@@ -77,7 +71,7 @@ describe('RouteHistoryManager', () => {
                         text: 'Item 2',
                         route: '/reference/itemDetails/ID2',
                     },
-                ]
+                ],
             });
             const routes = model.getBreadCrumbRoutes(path, routeDefinitions);
 
@@ -89,9 +83,7 @@ describe('RouteHistoryManager', () => {
     });
 
     describe('#getRecentlyViewedRoutes', () => {
-
         it('should return array of recently viewed route definitions if childs of the given paths', () => {
-
             const path = '/reference/itemDetails';
             const routeDefinitions = [
                 {
@@ -112,21 +104,21 @@ describe('RouteHistoryManager', () => {
                 },
             ];
             model = new RouteHistoryManager({
-                recentlyViewedRoutes: routeDefinitions
+                recentlyViewedRoutes: routeDefinitions,
             });
             let routes = model.getRecentlyViewedRoutes(['/reference']);
 
             expect(routes.length).to.eq(2);
             expect(routes[0].text).to.eq('Item Details');
             expect(routes[1].text).to.eq('Tables');
-            
+
             routes = model.getRecentlyViewedRoutes(['/reference', '/']);
 
             expect(routes.length).to.eq(3);
             expect(routes[0].text).to.eq('Reference');
             expect(routes[1].text).to.eq('Item Details');
             expect(routes[2].text).to.eq('Tables');
-            
+
             routes = model.getRecentlyViewedRoutes(['/reference', '/reference/itemDetails']);
 
             expect(routes.length).to.eq(3);
@@ -136,7 +128,6 @@ describe('RouteHistoryManager', () => {
         });
 
         it('should not include duplicates', () => {
-
             const path = '/reference/itemDetails';
             const routeDefinitions = [
                 {
@@ -153,16 +144,12 @@ describe('RouteHistoryManager', () => {
                 },
             ];
             model = new RouteHistoryManager({
-                recentlyViewedRoutes: routeDefinitions
+                recentlyViewedRoutes: routeDefinitions,
             });
-            let routes = model.getRecentlyViewedRoutes(['/reference']);
+            const routes = model.getRecentlyViewedRoutes(['/reference']);
 
             expect(routes.length).to.eq(1);
             expect(routes[0].text).to.eq('Item Details');
-            
         });
-
     });
-
-
 });

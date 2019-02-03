@@ -11,20 +11,18 @@ const tables = {
 let instance = null;
 export function getStore() {
     if (instance === null) {
-
         instance = new DataStore({
             schema: {
                 user: User,
                 uiData: UiData,
-                systemData: models.Model
-            }
+                systemData: models.Model,
+            },
         });
     }
     return instance;
 }
 
 export function setupStore(serverStore, uiData, lang, user, systemData) {
-
     const store = getStore();
     store.reinitialize();
 
@@ -47,19 +45,18 @@ export function setupStore(serverStore, uiData, lang, user, systemData) {
 }
 
 export class DataStore extends stores.ClassStore {
-
     constructor(options) {
         super(options);
         this.deserialize({});
     }
 
     /**
-     * @return {User | null} 
+     * @return {User | null}
      */
     getUser() {
         return this.getFirstObject(tables.USER);
     }
-    
+
     /**
      * @param {User} user
      */
@@ -68,15 +65,13 @@ export class DataStore extends stores.ClassStore {
         user = this.create(tables.USER, user);
         this.fire(events.USER_CHANGE, user);
     }
-    
+
     getItems() {
         return this.all(tables.ITEM);
     }
 
     setItems(items) {
-        this.setCollection(tables.ITEM, items.map((obj) => {
-            return new models.Model(obj);
-        }));
+        this.setCollection(tables.ITEM, items.map(obj => new models.Model(obj)));
         this.fire(events.ITEM_CHANGE);
     }
 
@@ -86,7 +81,7 @@ export class DataStore extends stores.ClassStore {
     }
 
     createSystemData(systemData) {
-        this.create(tables.SYSTEM_DATA, systemData); 
+        this.create(tables.SYSTEM_DATA, systemData);
     }
 
     getSystemData() {
@@ -99,11 +94,11 @@ export class DataStore extends stores.ClassStore {
      * @param {string} lang
      */
     createUiData(uiData, lang) {
-        for (let app in uiData.apps) {
-            let data = uiData.apps[app][lang];
+        for (const app in uiData.apps) {
+            const data = uiData.apps[app][lang];
             if (data) {
                 data.app = app;
-                this.create(tables.UI_DATA, new UiData(data)); 
+                this.create(tables.UI_DATA, new UiData(data));
             }
         }
     }
@@ -113,15 +108,13 @@ export class DataStore extends stores.ClassStore {
      * @param {string} currentApp
      */
     setCurrentUiData(currentApp) {
-        let list = this.all(tables.UI_DATA);
+        const list = this.all(tables.UI_DATA);
 
-        const current = list.find(data => {
-            return data.isCurrentApp === true;
-        });
+        const current = list.find(data => data.isCurrentApp === true);
 
         if (current) {
             if (current.app === currentApp) {
-                //if its already the current app
+                // if its already the current app
                 return;
             }
 
@@ -129,9 +122,7 @@ export class DataStore extends stores.ClassStore {
             this.update(tables.UI_DATA, current);
         }
 
-        const newCurrent = list.find(data => {
-            return data.app === currentApp;
-        });
+        const newCurrent = list.find(data => data.app === currentApp);
         newCurrent.isCurrentApp = true;
         this.update(tables.UI_DATA, newCurrent);
     }
@@ -141,9 +132,7 @@ export class DataStore extends stores.ClassStore {
      * @return {UiData}
      */
     getUiData() {
-        return this.find(tables.UI_DATA, data => {
-            return data.isCurrentApp === true;
-        })[0];
+        return this.find(tables.UI_DATA, data => data.isCurrentApp === true)[0];
     }
 
     /**
@@ -152,12 +141,10 @@ export class DataStore extends stores.ClassStore {
      * @return {UiData}
      */
     getUiDataByAppName(name) {
-        return this.find(tables.UI_DATA, data => {
-            return data.app === name;
-        })[0];
+        return this.find(tables.UI_DATA, data => data.app === name)[0];
     }
 }
 
 export const events = {
-    USER_CHANGE: '1', //users are change when page loads
-}
+    USER_CHANGE: '1', // users are change when page loads
+};

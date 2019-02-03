@@ -3,7 +3,6 @@ import Base from '../Base.auto';
 import { baseUrl } from '../../../automation/config';
 
 export default class RouteBase extends Base {
-
     /**
      * route path (ie /login)
      * @abstract
@@ -19,6 +18,4 @@ export default class RouteBase extends Base {
     navigate() {
         this.driver.navigate().to(baseUrl + this.getPath());
     }
-
-
 }

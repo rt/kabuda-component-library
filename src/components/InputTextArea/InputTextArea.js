@@ -6,38 +6,39 @@ import cx from 'classnames';
 import Base from '../Base';
 
 export class InputTextArea extends Base {
-
     constructor(props) {
         super(props);
 
         this.handleChange = this.handleChange.bind(this);
         this.handleBlur = this.handleBlur.bind(this);
     }
-    
+
     handleChange(e) {
-        //analytics
+        // analytics
         this.props.onChange && this.props.onChange(this.props.name, e.target.value);
-        if (e.stopPropagation) {  //stopPropagation isnt there on simlulate test???
-            e.stopPropagation(); //dont trigger window close handler
+        if (e.stopPropagation) { // stopPropagation isnt there on simlulate test???
+            e.stopPropagation(); // dont trigger window close handler
         }
     }
-    
+
     handleBlur(e) {
         this.props.onBlur && this.props.onBlur(this.props.name, e.target.value);
     }
 
     render() {
-        const { id, status, name, type, placeholder, value, ...rest} = this.props;
+        const {
+            id, status, name, type, placeholder, value, ...rest
+        } = this.props;
 
         const cls = [s.root];
         switch (status) {
-            case 'error':
-                cls.push(s.error)
-                break;
-            default:
+        case 'error':
+            cls.push(s.error);
+            break;
+        default:
         }
         return (
-            <textarea 
+            <textarea
                 className={cx(...cls)}
                 id={id}
                 name={name}
@@ -48,16 +49,16 @@ export class InputTextArea extends Base {
                 onBlur={this.handleBlur}
                 data-e2e={this.e2e()}
             />
-            );
-        }
-};
+        );
+    }
+}
 
 InputTextArea.propTypes = {
     name: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
     value: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.number
+        PropTypes.number,
     ]),
     status: PropTypes.string,
     onChange: PropTypes.func,

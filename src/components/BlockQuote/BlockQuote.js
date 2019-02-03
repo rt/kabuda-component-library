@@ -5,16 +5,12 @@ import s from './BlockQuote.css';
 import Base from '../Base';
 
 export class BlockQuote extends Base {
-
     constructor(props) {
         super(props);
-
     }
 
     render() {
-        const getText = () => {
-            return '"' + this.props.text + '"';
-        }
+        const getText = () => `"${this.props.text}"`;
         return (
             <blockquote data-e2e={this.e2e()}>
                 {getText()}
@@ -23,7 +19,7 @@ export class BlockQuote extends Base {
             </blockquote>
         );
     }
-};
+}
 
 BlockQuote.propTypes = {
     text: PropTypes.string,

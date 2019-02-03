@@ -11,7 +11,6 @@ import NavList from '../NavList';
  * Final item path text is retrieved from recent views in the RouteHistoryManager
 */
 export class BreadCrumbs extends Base {
-
     constructor(props) {
         super(props);
     }
@@ -20,17 +19,17 @@ export class BreadCrumbs extends Base {
         return (
             <span data-e2e={this.e2e()}>
                 <NavList
-                    isHorizontal={true}
+                    isHorizontal
                     delimitter="/"
                     startDelimitter="/"
                     array={this.props.routes}
-                    suppressSelectedHighlight={true}
-                    ignoreHistory={true}
+                    suppressSelectedHighlight
+                    ignoreHistory
                 />
             </span>
         );
     }
-};
+}
 
 BreadCrumbs.propTypes = {
     routes: PropTypes.array.isRequired,

@@ -7,10 +7,8 @@ import Base from '../Base';
 import InputRange from '../InputRange';
 
 export class ColorSliders extends Base {
-    
     constructor(props) {
         super(props);
-
     }
 
     handleChange = (index, val) => {
@@ -33,7 +31,7 @@ export class ColorSliders extends Base {
                             min={0}
                             max={255}
                             value={this.props.scalar[0]}
-                            onInput={val => {this.handleChange(0, val)}}
+                            onInput={(val) => { this.handleChange(0, val); }}
                         />
                     </div>
                 </div>
@@ -47,7 +45,7 @@ export class ColorSliders extends Base {
                             min={0}
                             max={255}
                             value={this.props.scalar[1]}
-                            onInput={val => {this.handleChange(1, val)}}
+                            onInput={(val) => { this.handleChange(1, val); }}
                         />
                     </div>
                 </div>
@@ -61,14 +59,14 @@ export class ColorSliders extends Base {
                             min={0}
                             max={255}
                             value={this.props.scalar[2]}
-                            onInput={val => {this.handleChange(2, val)}}
+                            onInput={(val) => { this.handleChange(2, val); }}
                         />
                     </div>
                 </div>
             </div>
         );
     }
-};
+}
 
 ColorSliders.propTypes = {
     scalar: PropTypes.array.isRequired,

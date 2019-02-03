@@ -11,11 +11,11 @@ import * as routeSetupActions from './actions/route-setup';
 import * as usersActions from './actions/usersActions';
 import * as stateStore from './stores/state-store';
 import * as dataStore from './stores/data-store';
-import { getComm as _getComm, setComm , getFetch as _getFetch, setFetch} from './utils/comm';
+import { getComm as _getComm, setComm, getFetch as _getFetch, setFetch } from './utils/comm';
 
 export const stores = {
-    dataStore: dataStore,
-    stateStore: stateStore,
+    dataStore,
+    stateStore,
 };
 
 export function setup(options) {
@@ -32,20 +32,20 @@ export const getComm = _getComm;
 export const getFetch = _getFetch;
 
 export const models = {
-    AppState: AppState,
-    Log: Log,
-    LookupTable: LookupTable,
-    RouteDefinition: RouteDefinition,
-    RouteHistoryManager: RouteHistoryManager,
-    RouteHistory: RouteHistory,
-    UiData: UiData,
-    User: User
+    AppState,
+    Log,
+    LookupTable,
+    RouteDefinition,
+    RouteHistoryManager,
+    RouteHistory,
+    UiData,
+    User,
 };
 
 export const actions = {
     appState: appStateActions,
     routeSetup: routeSetupActions,
-    users: usersActions
+    users: usersActions,
 };
 
 export const uiData = {

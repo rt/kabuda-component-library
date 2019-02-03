@@ -6,30 +6,21 @@ import cx from 'classnames';
 import Base from '../Base';
 import { models } from 'kabuda-liquid';
 
-//for some reason i couldnt get this to work ...
+// for some reason i couldnt get this to work ...
 export class FieldBase extends Base {
-
     constructor(props) {
         super(props);
-
     }
 
-    getValidations = () => {
-        return this.props.field.errors.map((error, index) => {
-            return <div key={index} data-e2e="validationMessage">{this.uiData.validation[error]}</div>;
-        });
-    }
-    
-    getIsRequired = () => {
-        return this.props.field.isRequired ? '*' : null;
-    }
+    getValidations = () => this.props.field.errors.map((error, index) => <div key={index} data-e2e="validationMessage">{this.uiData.validation[error]}</div>)
 
-    //provide a similar interface for form
+    getIsRequired = () => (this.props.field.isRequired ? '*' : null)
+
+    // provide a similar interface for form
     handleChange = (val) => {
         this.props.onChange(this.props.field.key, val);
     }
-
-};
+}
 
 FieldBase.propTypes = {
     field: PropTypes.instanceOf(models.FormField).isRequired,

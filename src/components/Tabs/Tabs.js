@@ -6,7 +6,6 @@ import cx from 'classnames';
 import Base from '../Base';
 
 export class Tabs extends Base {
-
     constructor(props) {
         super(props);
 
@@ -20,32 +19,34 @@ export class Tabs extends Base {
 
     getCategories() {
         return this.props.array.map((item) => {
-            let cls = item[this.props.keyPath] === this.props.currentSelection ? s.linkSelected : s.link;
+            const cls = item[this.props.keyPath] === this.props.currentSelection ? s.linkSelected : s.link;
             return (
-                <li 
-                    className={s.item} 
-                    data-key={item[this.props.keyPath]} 
-                    key={item[this.props.keyPath]}>
-                    <a 
-                        className={cls} 
-                        data-key={item[this.props.keyPath]} 
-                    >{item[this.props.textPath]}</a>
+                <li
+                    className={s.item}
+                    data-key={item[this.props.keyPath]}
+                    key={item[this.props.keyPath]}
+                >
+                    <a
+                        className={cls}
+                        data-key={item[this.props.keyPath]}
+                    >{item[this.props.textPath]}
+                    </a>
 
                 </li>
             );
         });
-    };
+    }
 
     render() {
         let cls = null;
         if (this.props.className) {
             cls = cx(s.nav, this.props.className);
         } else {
-            cls = cx(s.nav);
+            cls = s.nav;
         }
 
         return (
-            <ul 
+            <ul
                 data-e2e="tabs"
                 className={cls}
                 onClick={this.handleClick}
@@ -53,7 +54,7 @@ export class Tabs extends Base {
             </ul>
         );
     }
-};
+}
 
 Tabs.propTypes = {
     array: PropTypes.array.isRequired,

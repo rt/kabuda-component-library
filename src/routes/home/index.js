@@ -10,10 +10,10 @@ export default {
         {
             path: '/',
             async action(context) {
-                const title = 'test';//getStore().getUiData().getRouteTitle(context.baseUrl + context.path);
+                const title = 'test';// getStore().getUiData().getRouteTitle(context.baseUrl + context.path);
                 return {
-                    title: title,
-                    component: <Home title={title}/>,
+                    title,
+                    component: <Home title={title} />,
                 };
             },
         },
@@ -41,6 +41,6 @@ export default {
         // },
 
 
-    ]
+    ],
 
 };

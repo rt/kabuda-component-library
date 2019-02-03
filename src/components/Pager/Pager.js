@@ -6,7 +6,6 @@ import cx from 'classnames';
 import Base from '../Base';
 
 export class Pager extends Base {
-
     constructor(props) {
         super(props);
 
@@ -16,30 +15,27 @@ export class Pager extends Base {
 
     getList() {
         return this.props.pages.map((page) => {
-
             if (page.isSelected) {
-                return <a key={page.number} data-key={page.number} className={s.active} href="#">{page.number}</a>
-            } else {
-                return <a key={page.number} data-key={page.number} href="#">{page.number}</a>
+                return <a key={page.number} data-key={page.number} className={s.active} href="#">{page.number}</a>;
             }
-                
+            return <a key={page.number} data-key={page.number} href="#">{page.number}</a>;
         });
     }
 
     handleClick(e) {
         const key = e.target.dataset.key;
         switch (key) {
-            case 'prev':
-                this.props.onPrev()
-                break;
+        case 'prev':
+            this.props.onPrev();
+            break;
 
-            case 'next':
-                this.props.onNext()
-                break;
+        case 'next':
+            this.props.onNext();
+            break;
 
-            default:
-                this.props.onSelection(parseInt(key))
-                break;
+        default:
+            this.props.onSelection(parseInt(key));
+            break;
         }
     }
 
@@ -52,6 +48,6 @@ export class Pager extends Base {
             </div>
         );
     }
-};
+}
 
 export default withStyles(s)(Pager);

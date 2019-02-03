@@ -7,7 +7,6 @@ import Base from '../Base';
 import ReactMarkdown from 'react-markdown';
 
 class Markdown extends Base {
-
     constructor(props) {
         super(props);
     }
@@ -19,7 +18,7 @@ class Markdown extends Base {
             </div>
         );
     }
-};
+}
 
 Markdown.propTypes = {
 };

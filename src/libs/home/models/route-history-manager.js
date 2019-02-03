@@ -3,22 +3,21 @@ import RouteHistory from './route-history';
 import RouteDefinition from './route-definition';
 
 export default class RouteHistoryManager extends models.Model {
-
     /**
      * @params {object} o
      */
     constructor(o) {
         super(o);
-        
+
         this.deserializeArray(o, 'historyRoutes', RouteHistory);
         this.deserializeArray(o, 'recentlyViewedRoutes', RouteDefinition);
     }
-    
+
     getHistoryRoute(to) {
-        //adjust by evaluating local route history
+        // adjust by evaluating local route history
         for (let i = this.historyRoutes.length - 1; i >= 0; i--) {
-            let routeHistory = this.historyRoutes[i];
-            if (routeHistory.path === to || routeHistory.path.startsWith(to + '/')) {
+            const routeHistory = this.historyRoutes[i];
+            if (routeHistory.path === to || routeHistory.path.startsWith(`${to}/`)) {
                 to = routeHistory.path;
                 break;
             }
@@ -51,20 +50,17 @@ export default class RouteHistoryManager extends models.Model {
         const parts = path.split('/');
         let subPath = '';
         for (const part of parts) {
-            subPath += part + '/';
+            subPath += `${part}/`;
             const subPathShort = subPath.substring(0, subPath.lastIndexOf('/'));
             let route;
-            route = routeDefinitions.find(routeDefinition => {
-                //seach in main definitions
-                return routeDefinition.route === subPathShort;
-            });
+            route = routeDefinitions.find(routeDefinition =>
+                // seach in main definitions
+                routeDefinition.route === subPathShort);
             if (!route) {
-                //search recently viewed (items)
-                route = this.recentlyViewedRoutes.find(routeDefinition => {
-                    return routeDefinition.route === subPathShort;
-                });
+                // search recently viewed (items)
+                route = this.recentlyViewedRoutes.find(routeDefinition => routeDefinition.route === subPathShort);
             }
-            
+
             if (route) {
                 routes.push(route);
             }
@@ -88,10 +84,8 @@ export default class RouteHistoryManager extends models.Model {
                 basePath = '/';
             }
             for (const path of paths) {
-                //no duplicates
-                if (basePath === path && !list.some(item => {
-                    return item.route === route;
-                })) {
+                // no duplicates
+                if (basePath === path && !list.some(item => item.route === route)) {
                     list.push(routeDefinition);
                 }
             }

@@ -11,7 +11,7 @@ export function getComm() {
 
 
 let fetchUtil = null;
-export function setFetch(_fetchUtil) {// eslint-disable-line no-unused-vars
+export function setFetch(_fetchUtil) { // eslint-disable-line no-unused-vars
     fetchUtil = _fetchUtil;
 }
 

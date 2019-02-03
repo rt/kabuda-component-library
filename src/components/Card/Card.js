@@ -6,7 +6,6 @@ import cx from 'classnames';
 import Base from '../Base';
 
 export class Card extends Base {
-    
     constructor(props) {
         super(props);
     }
@@ -18,7 +17,7 @@ export class Card extends Base {
             </div>
         );
     }
-};
+}
 
 Card.propTypes = {
     children: PropTypes.node,

@@ -8,23 +8,15 @@ import InputSelect from '../InputSelect';
 import Base from '../Base';
 
 export class FieldSelect extends Base {
-
     constructor(props) {
         super(props);
-
     }
 
-    getValidations = () => {
-        return this.props.field.errors.map(error => {
-            return <div>{this.uiData.validation[error]}</div>;
-        });
-    }
-    
-    getIsRequired = () => {
-        return this.props.field.isRequired ? '*' : null;
-    }
+    getValidations = () => this.props.field.errors.map(error => <div>{this.uiData.validation[error]}</div>)
 
-    //provide a similar interface for form
+    getIsRequired = () => (this.props.field.isRequired ? '*' : null)
+
+    // provide a similar interface for form
     handleChange = (val) => {
         this.props.onChange(this.props.field.key, val);
     }
@@ -40,12 +32,12 @@ export class FieldSelect extends Base {
                     status={this.props.field.status}
                     selectedKey={this.props.field.value}
                     onChange={this.handleChange}
-                /> 
+                />
                 {this.getValidations()}
             </div>
         );
     }
-};
+}
 
 FieldSelect.propTypes = {
 };

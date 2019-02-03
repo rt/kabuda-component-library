@@ -6,15 +6,12 @@ import cx from 'classnames';
 import Base from '../Base';
 
 export class StarRating extends Base {
-
     render() {
-        const { percentage, ...rest} = this.props;
+        const { percentage, ...rest } = this.props;
 
-        const getStyle = () => {
-            return {
-                width: (this.props.rating/this.props.maxRating * 100) + '%'
-            }
-        };
+        const getStyle = () => ({
+            width: `${this.props.rating / this.props.maxRating * 100}%`,
+        });
 
         return (
             <span className={s.starRatingsCss}>
@@ -36,7 +33,7 @@ export class StarRating extends Base {
 
         );
     }
-};
+}
 
 StarRating.propTypes = {
 };

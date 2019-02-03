@@ -6,23 +6,18 @@ import cx from 'classnames';
 import Base from '../Base';
 import BigCalendar from 'react-big-calendar';
 import moment from 'moment';
-//import 'react-big-calendar/lib/css/react-big-calendar.css';
+// import 'react-big-calendar/lib/css/react-big-calendar.css';
 
-BigCalendar.setLocalizer(
-      BigCalendar.momentLocalizer(moment)
-);
+BigCalendar.setLocalizer(BigCalendar.momentLocalizer(moment));
 
-let allViews = Object.keys(BigCalendar.views).map(k => BigCalendar.views[k])
+const allViews = Object.keys(BigCalendar.views).map(k => BigCalendar.views[k]);
 
 
 /**
  */
 export class FilterCalendar extends Base {
-
-
     constructor(props) {
         super(props);
-
     }
 
     render() {
@@ -37,7 +32,7 @@ export class FilterCalendar extends Base {
             </div>
         );
     }
-};
+}
 
 FilterCalendar.propTypes = {
 };

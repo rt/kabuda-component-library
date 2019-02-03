@@ -9,14 +9,13 @@ import Base from '../Base';
 /**
  */
 export class ModalClosable extends Base {
-
     constructor(props) {
         super(props);
-        //this.getButtons = this.getButtons.bind(this);
+        // this.getButtons = this.getButtons.bind(this);
     }
 
     componentDidMount() {
-        //todo: would like to focus on closeBtn but this needs to be a selectable
+        // todo: would like to focus on closeBtn but this needs to be a selectable
         this.closeBtn.focus();
     }
 
@@ -37,7 +36,7 @@ export class ModalClosable extends Base {
     render() {
         return (
             <div data-e2e={this.e2e()} onClick={this.handleModalClick.bind(this)} className={s.modal} >
-                <span className={s.close} ref={(span) => {this.closeBtn = span}} onClick={this.handleClose.bind(this)}>&times;</span>
+                <span className={s.close} ref={(span) => { this.closeBtn = span; }} onClick={this.handleClose.bind(this)}>&times;</span>
 
                 <div onClick={this.handleContentClick.bind(this)} className={cx(s.content, s.animateOpacity)}>
                     {this.props.children}
@@ -45,11 +44,11 @@ export class ModalClosable extends Base {
             </div>
         );
     }
-};
+}
 
 ModalClosable.propTypes = {
     onCloseBtnClick: PropTypes.func,
-    isStatic: PropTypes.bool            //clicking the backdrop will not dismiss
+    isStatic: PropTypes.bool, // clicking the backdrop will not dismiss
 };
 
 export default withStyles(s)(ModalClosable);

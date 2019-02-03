@@ -6,7 +6,6 @@ import cx from 'classnames';
 import Base from '../Base';
 
 export class InputSelect extends Base {
-
     constructor(props) {
         super(props);
 
@@ -19,30 +18,28 @@ export class InputSelect extends Base {
     }
 
     getOptions() {
-
-        let options = [];
+        const options = [];
         if (this.props.prompt) {
         }
         this.props.options.forEach((opt, index) => {
-            options.push(
-                this.props.keyPath === '.' ? <option key={index} value={opt}>{opt}</option> : <option key={index} value={opt[this.props.keyPath]}>
-                    {opt[this.props.valuePath]}
-                </option> 
-            );
+            options.push(this.props.keyPath === '.' ? <option key={index} value={opt}>{opt}</option> : <option key={index} value={opt[this.props.keyPath]}>
+                {opt[this.props.valuePath]}
+            </option>);
         });
         return options;
     }
-    
-    render() {
 
-        const { id, selectedKey, status, ...rest} = this.props;
+    render() {
+        const {
+            id, selectedKey, status, ...rest
+        } = this.props;
 
         const cls = [s.root];
         switch (status) {
-            case 'error':
-                cls.push(s.error)
-                break;
-            default:
+        case 'error':
+            cls.push(s.error);
+            break;
+        default:
         }
 
         return (
@@ -57,7 +54,7 @@ export class InputSelect extends Base {
             </select>
         );
     }
-};
+}
 
 InputSelect.propTypes = {
     status: PropTypes.string,

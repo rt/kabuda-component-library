@@ -6,7 +6,6 @@ import cx from 'classnames';
 import Base from '../Base';
 
 export class ToggleTextButton extends Base {
-
     constructor(props) {
         super(props);
     }
@@ -16,20 +15,19 @@ export class ToggleTextButton extends Base {
     }
 
     render() {
-
         const { model, trueText, falseText } = this.props;
 
-        return <a 
-                    data-e2e={this.e2e()} 
-                    href="#0" 
-                    onClick={this.handleClick}
-                    className={s.root}
-                    role="button"
-                >
-                    {model ? trueText : falseText}
-                </a>;
+        return (<a
+            data-e2e={this.e2e()}
+            href="#0"
+            onClick={this.handleClick}
+            className={s.root}
+            role="button"
+        >
+            {model ? trueText : falseText}
+        </a>);
     }
-};
+}
 
 ToggleTextButton.propTypes = {
     model: PropTypes.bool.isRequired,

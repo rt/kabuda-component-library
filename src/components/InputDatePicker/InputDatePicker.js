@@ -10,14 +10,13 @@ import { actions as homeActions } from '../../libs/home';
 import dateFormatter from '../../utils/dateFormatter';
 
 class InputDatePicker extends Base {
-
     constructor(props) {
         super(props);
 
         this.overlayKey = null;
-        
+
         this.state = {
-            searchContentTimestamp: 0
+            searchContentTimestamp: 0,
         };
 
         this.handleFocus = this.handleFocus.bind(this);
@@ -27,20 +26,20 @@ class InputDatePicker extends Base {
     }
 
     componentWillMount() {
-        homeActions.appState.getOverlayId().then(id => {
+        homeActions.appState.getOverlayId().then((id) => {
             this.overlayKey = id;
         });
     }
 
     handleDayClick(day, selected) {
-        //if allowing unselection
+        // if allowing unselection
         day = selected ? undefined : day;
         this.props.onDayClick(day);
     }
 
     handleFocus(name, value) {
-        let state = this.state;
-        
+        const state = this.state;
+
         homeActions.appState.setOverlayId(this.overlayKey, true);
 
         this.setState(state);
@@ -48,22 +47,21 @@ class InputDatePicker extends Base {
 
     getDropdown() {
         if (this.overlayKey && this.props.appState.overlays[this.overlayKey]) {
-            return ( 
+            return (
                 <div className={cx(s.dropdownContent, s.container)}>
                     <DatePicker
                         onDayClick={this.handleDayClick}
                         selectedDay={this.props.selectedDay}
                     />
                 </div>
-                );
-        } else {
-            return (<div />);
+            );
         }
+        return (<div />);
     }
     render() {
         return (
             <div data-e2e={this.e2e()}>
-                <InputText 
+                <InputText
                     name="datePicker"
                     onFocus={this.handleFocus}
                     value={dateFormatter.formatDate(this.props.selectedDay)}
@@ -72,10 +70,10 @@ class InputDatePicker extends Base {
             </div>
         );
     }
-};
+}
 
 InputDatePicker.propTypes = {
-    onDayClick: PropTypes.func
+    onDayClick: PropTypes.func,
 };
 
 export default withStyles(s)(InputDatePicker);

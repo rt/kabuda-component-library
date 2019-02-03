@@ -13,7 +13,7 @@ export class FieldSet extends Base {
             </fieldset>
         );
     }
-};
+}
 
 FieldSet.propTypes = {
     children: PropTypes.node,

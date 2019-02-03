@@ -3,7 +3,6 @@ import LookupTable from './lookup-table';
 import RouteDefinition from './route-definition';
 
 export default class UiData extends models.Model {
-
     constructor(o) {
         super(o);
 
@@ -15,10 +14,7 @@ export default class UiData extends models.Model {
     }
 
     getRouteTitle(path) {
-        const route = this.routes.find(route => {
-            return route.route === path;
-        });
+        const route = this.routes.find(route => route.route === path);
         return route && route.text;
     }
-
 }

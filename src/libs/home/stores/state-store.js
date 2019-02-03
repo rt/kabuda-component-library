@@ -9,7 +9,7 @@ const tables = {
 
 export const stateEvents = {
     APP_STATE_CHANGE: '1',
-}
+};
 
 let instance = null;
 
@@ -18,9 +18,7 @@ export function getStateStore() {
 }
 
 export function setupStateStore(sessionStorage) {
-
     if (instance === null) {
-
         if (!sessionStorage) {
             sessionStorage = new utils.MemorySessionStorage();
         }
@@ -31,20 +29,19 @@ export function setupStateStore(sessionStorage) {
                 routeHistoryManager: RouteHistoryManager,
             },
             sessionStorageKey: 'stateStore',
-            sessionStorage: sessionStorage,
+            sessionStorage,
         });
     }
     return instance;
 }
 
 export class StateStore extends stores.SessionStorageStore {
-
     constructor(options) {
         super(options);
     }
-    
+
     /**
-     * @return {AppState} 
+     * @return {AppState}
      */
     getAppState() {
         let state = this.getFirstObject(tables.APP_STATE);
@@ -53,7 +50,7 @@ export class StateStore extends stores.SessionStorageStore {
         }
         return state;
     }
-    
+
     /**
      * @param {AppState} state
      */
@@ -62,7 +59,7 @@ export class StateStore extends stores.SessionStorageStore {
         this.fire(stateEvents.APP_STATE_CHANGE, state);
     }
 
-    //----- ROUTE HISTORY
+    // ----- ROUTE HISTORY
 
     /**
      * @return {RouteHistoryManager}
@@ -74,13 +71,12 @@ export class StateStore extends stores.SessionStorageStore {
         }
         return manager;
     }
-    
+
     /**
      * @param {RouteHistoryManager} manager
      */
     updateRouteHistoryManager(manager) {
         this.update(tables.ROUTE_HISTORY_MANAGER, manager);
     }
-
 }
 

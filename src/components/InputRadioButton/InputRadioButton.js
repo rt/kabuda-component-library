@@ -5,10 +5,9 @@ import s from './InputRadioButton.css';
 import Base from '../Base';
 
 export class InputRadioButton extends Base {
-
     constructor(props) {
         super(props);
-        
+
         this.handleClick = this.handleClick.bind(this);
         this.getValue = this.getValue.bind(this);
     }
@@ -22,7 +21,6 @@ export class InputRadioButton extends Base {
     }
 
     render() {
-
         return (
             <input
                 className={s.input}
@@ -36,13 +34,13 @@ export class InputRadioButton extends Base {
             />
         );
     }
-};
+}
 
 InputRadioButton.propTypes = {
     model: PropTypes.object,
     name: PropTypes.string.isRequired,
     selection: PropTypes.string,
-    valuePath: PropTypes.string
+    valuePath: PropTypes.string,
 };
 
 export default withStyles(s)(InputRadioButton);

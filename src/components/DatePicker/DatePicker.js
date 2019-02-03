@@ -7,7 +7,6 @@ import Base from '../Base';
 import DayPicker from 'react-day-picker';
 
 class DatePicker extends Base {
-
     constructor(props) {
         super(props);
 
@@ -15,7 +14,7 @@ class DatePicker extends Base {
     }
 
     handleDayClick(day, { selected }) {
-        //if allowing unselection
+        // if allowing unselection
         day = selected ? undefined : day;
         this.props.onDayClick(day, selected);
     }
@@ -30,10 +29,10 @@ class DatePicker extends Base {
             </div>
         );
     }
-};
+}
 
 DatePicker.propTypes = {
-    onDayClick: PropTypes.func
+    onDayClick: PropTypes.func,
 };
 
 export default withStyles(s)(DatePicker);

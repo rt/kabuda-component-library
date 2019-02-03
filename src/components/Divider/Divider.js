@@ -8,14 +8,12 @@ import Base from '../Base';
 /**
 */
 export class Divider extends Base {
-
     constructor(props) {
         super(props);
-
     }
 
     render() {
-        const { name, ...rest} = this.props;
+        const { name, ...rest } = this.props;
 
         return (
             <div data-e2e={this.e2e()} className={s.root}>
@@ -23,7 +21,7 @@ export class Divider extends Base {
             </div>
         );
     }
-};
+}
 
 Divider.propTypes = {
     children: PropTypes.node,

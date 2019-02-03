@@ -1,7 +1,6 @@
 import accounting from 'accounting';
 
 class NumberFormatter {
-
     static isInt(n) {
         if (n === '' || n === null) {
             return false;
@@ -17,7 +16,7 @@ class NumberFormatter {
     /**
     */
     static formatCurrency(amount, addHtmlFormatting, useCurrencyCode) {
-        //this would need to be in config (per app)
+        // this would need to be in config (per app)
         const currencyFormat = {
             currencyCode: 'USD',
             currencySymbol: '$',
@@ -27,7 +26,7 @@ class NumberFormatter {
             prefix: '$',
             prefixCurrencySymbol: true,
             suffix: '',
-            thousandsSeparator: ','
+            thousandsSeparator: ',',
         };
 
         return accounting.formatMoney(amount, {
@@ -37,16 +36,16 @@ class NumberFormatter {
             decimal: currencyFormat.decimalsSeparator,
             format: {
                 pos: currencyFormat.prefixCurrencySymbol ? '%s' + '%v' : '%v' + '%s',
-                neg: currencyFormat.prefixCurrencySymbol ? '%s' + '-%v' : '-%v'  + '%s',
-                zero: currencyFormat.prefixCurrencySymbol ? '%s' + '%v' : '%v' + '%s'
-            }
+                neg: currencyFormat.prefixCurrencySymbol ? '%s' + '-%v' : '-%v' + '%s',
+                zero: currencyFormat.prefixCurrencySymbol ? '%s' + '%v' : '%v' + '%s',
+            },
         });
-    };
+    }
 
     /**
     */
     static formatNumber(amount) {
-        //this would need to be in config (per app)
+        // this would need to be in config (per app)
         const numberFormat = {
             currencyCode: 'USD',
             currencySymbol: '$',
@@ -56,15 +55,14 @@ class NumberFormatter {
             prefix: '$',
             prefixCurrencySymbol: true,
             suffix: '',
-            thousandsSeparator: ','
+            thousandsSeparator: ',',
         };
 
         return accounting.formatNumber(amount, {
             precision: 0,
-            thousand: numberFormat.thousandsSeparator
+            thousand: numberFormat.thousandsSeparator,
         });
     }
-
 }
 
 

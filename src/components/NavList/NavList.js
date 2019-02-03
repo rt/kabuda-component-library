@@ -11,10 +11,9 @@ import { stores } from '../../libs/home';
 const getStateStore = stores.stateStore.getStateStore;
 
 class NavList extends Base {
-
     static contextTypes = {
         currentPath: PropTypes.string.isRequired,
-        history: PropTypes.object
+        history: PropTypes.object,
     };
 
     constructor(props) {
@@ -30,61 +29,55 @@ class NavList extends Base {
         }
 
         this.props.onSelection && this.props.onSelection(to);
-        
+
         if (!this.props.ignoreHistory) {
             to = getStateStore().getRouteHistoryManager().getHistoryRoute(to);
         }
         this.context.history.push(to);
     }
 
-    formatDelimitter = (text) => {
-        return <span aria-hidden="true" role="presentation" className={s.spacer}>&nbsp;{text}&nbsp;</span> 
-    }
+    formatDelimitter = text => <span aria-hidden="true" role="presentation" className={s.spacer}>&nbsp;{text}&nbsp;</span>
 
     getDelimitter = (length, index) => {
         if (this.props.isHorizontal) {
-            if ((length - 1) !== index) { 
+            if ((length - 1) !== index) {
                 return this.formatDelimitter(this.props.delimitter);
-            } else {
-                if (this.props.endDelimitter) {
-                    return this.formatDelimitter(this.props.endDelimitter);
-                } else {
-                    return ' ';
-                }
             }
-        } else {
-            return null;
+            if (this.props.endDelimitter) {
+                return this.formatDelimitter(this.props.endDelimitter);
+            }
+            return ' ';
         }
+        return null;
     }
-    
+
     getStartDelimitter = (index) => {
         if (index === 0 && this.props.isHorizontal && this.props.startDelimitter) {
             return this.formatDelimitter(this.props.startDelimitter);
-        } else {
-            return null;
         }
+        return null;
     }
 
     getList = () => {
-
         const length = this.props.array.length;
         const textPath = this.props.textPath || 'text';
 
         return this.props.array.map((item, index) => {
-
-            const cls = (!this.props.suppressSelectedHighlight && (this.context.currentPath === item.route || this.context.currentPath.startsWith(item.route + '/'))) ? s.highlight : s.item;
+            const cls = (!this.props.suppressSelectedHighlight && (this.context.currentPath === item.route || this.context.currentPath.startsWith(`${item.route}/`))) ? s.highlight : s.item;
 
             if (this.props.isHorizontal) {
                 return (
-                    <li className={cx(s.item, s.itemHor)} 
-                        data-key={item.route} 
-                        key={item.route}>
+                    <li
+                        className={cx(s.item, s.itemHor)}
+                        data-key={item.route}
+                        key={item.route}
+                    >
 
                         {this.getStartDelimitter(index)}
-                        <a 
+                        <a
                             className={cls}
                             href={item.route}
-                            data-e2e={item.e2e} 
+                            data-e2e={item.e2e}
                             style={this.props.style}
                         >
                             {utils.GetSet.get(item, textPath)}
@@ -92,37 +85,37 @@ class NavList extends Base {
                         {this.getDelimitter(length, index)}
                     </li>
                 );
-            } else {
-                return (
-                    <li className={cx(cls, s.itemVert)}
-                        data-key={item.route} 
-                        key={item.route}>
-                        <a 
-                            href={item.route}
-                            data-e2e={item.e2e} 
-                        >
-                            {utils.GetSet.get(item, textPath)}
-                        </a>
-                    </li>
-                );
             }
+            return (
+                <li
+                    className={cx(cls, s.itemVert)}
+                    data-key={item.route}
+                    key={item.route}
+                >
+                    <a
+                        href={item.route}
+                        data-e2e={item.e2e}
+                    >
+                        {utils.GetSet.get(item, textPath)}
+                    </a>
+                </li>
+            );
         });
     }
 
     render() {
         const cls = this.props.isHorizontal ? s.navHor : s.navVert;
         return (
-            <ul 
+            <ul
                 onClick={this.handleClick}
-                className={cx(s.nav, cls)} 
+                className={cx(s.nav, cls)}
                 role="navigation"
                 data-e2e={this.e2e()}
             >
-            {this.getList()}
+                {this.getList()}
             </ul>
         );
     }
-
 }
 
 NavList.propTypes = {

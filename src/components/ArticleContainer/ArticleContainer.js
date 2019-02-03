@@ -9,10 +9,8 @@ import Base from '../Base';
  * - make image optional
 */
 class ArticleContainer extends Base {
-
     constructor(props) {
         super(props);
-
     }
 
     buttonDidMount = (button) => {
@@ -34,21 +32,23 @@ class ArticleContainer extends Base {
 
     handleScrollTopClick = (e) => {
         // When the user clicks on the button, scroll to the top of the document
-        this.articleNode.scrollTop = 0; // For Chrome, Safari and Opera 
-        //document.body.scrollTop = 0; // For Chrome, Safari and Opera 
-        //document.documentElement.scrollTop = 0; // For IE and Firefox
+        this.articleNode.scrollTop = 0; // For Chrome, Safari and Opera
+        // document.body.scrollTop = 0; // For Chrome, Safari and Opera
+        // document.documentElement.scrollTop = 0; // For IE and Firefox
     }
 
     render() {
         return (
             <article ref={this.paneDidMount} className={cx(s.root, s.scroll)}>
                 {React.cloneElement(this.props.children)}
-                <button 
+                <button
                     ref={this.buttonDidMount}
-                    onClick={this.handleScrollTopClick} 
+                    onClick={this.handleScrollTopClick}
                     className={s.scrollToTopButton}
-                    id="myBtn" 
-                    title="Go to top">Top</button>
+                    id="myBtn"
+                    title="Go to top"
+                >Top
+                </button>
             </article>
         );
     }

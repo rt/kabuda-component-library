@@ -1,10 +1,9 @@
 import chai from 'chai';
-import {translate, pluralize} from './translator';
+import { translate, pluralize } from './translator';
 
 const expect = chai.expect;
 
 describe('#translator', () => {
-
     let model;
     beforeEach(() => {
     });
@@ -13,7 +12,6 @@ describe('#translator', () => {
     });
 
     describe('#translate', () => {
-
         it('should translate with no parameters', () => {
             expect(translate('hello')).to.eq('hello');
         });
@@ -28,16 +26,15 @@ describe('#translator', () => {
     });
 
     describe('#pluralize', () => {
+        // it('should throw if no number value', () => {
+        // expect(pluralize(undefined, 'hello')).to.throw(Error);
+        // });
 
-        //it('should throw if no number value', () => {
-            //expect(pluralize(undefined, 'hello')).to.throw(Error);
-        //});
-        
         it('should get appropriate string', () => {
             const o = {
                 zero: 'zero',
                 one: 'one',
-                twoOrMore: 'twoOrMore'
+                twoOrMore: 'twoOrMore',
             };
 
             expect(pluralize(0, o)).to.eq('zero');
@@ -50,12 +47,12 @@ describe('#translator', () => {
             const o = {
                 zero: '#number# people for #name#',
                 one: '#number# person here for #name#',
-                twoOrMore: '#number# people here for #name#'
+                twoOrMore: '#number# people here for #name#',
             };
 
             const params = {
-                name: 'ryan'
-            }
+                name: 'ryan',
+            };
 
             expect(pluralize(0, o, params)).to.eq('0 people for ryan');
             expect(pluralize(1, o, params)).to.eq('1 person here for ryan');

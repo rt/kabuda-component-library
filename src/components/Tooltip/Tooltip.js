@@ -6,7 +6,6 @@ import cx from 'classnames';
 import Base from '../Base';
 
 export class Tooltip extends Base {
-
     render() {
         return (
             <div className={s.tooltip}>{this.props.text}
@@ -14,7 +13,7 @@ export class Tooltip extends Base {
             </div>
         );
     }
-};
+}
 
 Tooltip.propTypes = {
 };

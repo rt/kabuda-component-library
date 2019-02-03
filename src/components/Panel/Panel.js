@@ -6,7 +6,6 @@ import cx from 'classnames';
 import Base from '../Base';
 
 class Panel extends Base {
-
     constructor(props) {
         super(props);
     }
@@ -20,6 +19,6 @@ class Panel extends Base {
             </div>
         );
     }
-};
+}
 
 export default withStyles(s)(Panel);

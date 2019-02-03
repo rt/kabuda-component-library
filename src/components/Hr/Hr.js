@@ -5,12 +5,11 @@ import s from './Hr.css';
 import Base from '../Base';
 
 export class Hr extends Base {
-
     render() {
         return (
             <hr role="presentation" />
         );
     }
-};
+}
 
 export default withStyles(s)(Hr);

@@ -6,44 +6,45 @@ import cx from 'classnames';
 import Base from '../Base';
 
 export class InputText extends Base {
-
     constructor(props) {
         super(props);
     }
 
     handleChange = (e) => {
-        //analytics
+        // analytics
         this.props.onChange && this.props.onChange(this.props.name, e.target.value);
-        if (e.stopPropagation) {  //stopPropagation isnt there on simlulate test???
-            e.stopPropagation(); //dont trigger window close handler
+        if (e.stopPropagation) { // stopPropagation isnt there on simlulate test???
+            e.stopPropagation(); // dont trigger window close handler
         }
     }
-    
+
     handleBlur = (e) => {
         this.props.onBlur && this.props.onBlur(this.props.name, e.target.value);
     }
 
     handleFocus = (e) => {
         this.props.onFocus && this.props.onFocus(this.props.name, e.target.value);
-        if (e.stopPropagation) {  //stopPropagation isnt there on simlulate test???
-            e.stopPropagation(); //dont trigger window close handler
+        if (e.stopPropagation) { // stopPropagation isnt there on simlulate test???
+            e.stopPropagation(); // dont trigger window close handler
         }
     }
 
     handleClick = (e) => {
-        if (e.stopPropagation) {  //stopPropagation isnt there on simlulate test???
-            e.stopPropagation(); //dont trigger window close handler
+        if (e.stopPropagation) { // stopPropagation isnt there on simlulate test???
+            e.stopPropagation(); // dont trigger window close handler
         }
     }
 
     render() {
-        const { id, status, name, type, placeholder, value, ...rest} = this.props;
+        const {
+            id, status, name, type, placeholder, value, ...rest
+        } = this.props;
         const cls = [s.input];
         switch (status) {
-            case 'error':
-                cls.push(s.error)
-                break;
-            default:
+        case 'error':
+            cls.push(s.error);
+            break;
+        default:
         }
 
         return (
@@ -62,14 +63,14 @@ export class InputText extends Base {
             />
         );
     }
-};
+}
 
 InputText.propTypes = {
     name: PropTypes.string.isRequired,
     placeholder: PropTypes.string,
     value: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.number
+        PropTypes.number,
     ]),
     status: PropTypes.string,
     onChange: PropTypes.func,
