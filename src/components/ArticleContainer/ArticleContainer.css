@@ -1,4 +1,3 @@
-@import '../variables.css';
 
 .root {
     flex: 1; /* Assumes in flexbox layout where this will stretch */

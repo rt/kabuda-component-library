@@ -1,6 +1,3 @@
-@import '../variables.css';
-@import '../css/container.css';
-@import '../css/animations.css';
 
 .modal {
     z-index: 3;

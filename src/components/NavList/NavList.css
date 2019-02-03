@@ -16,10 +16,12 @@
 .item, .highlight {
     margin-bottom: 1.0rem;
     cursor: pointer;
+    padding: var(--navlist-padding);
 }
 
 .item {
     border-radius: 3px;
+    padding: var(--navlist-padding);
 }
 
 .itemVert {

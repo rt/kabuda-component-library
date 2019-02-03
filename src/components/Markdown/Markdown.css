@@ -1,6 +1,3 @@
-@import '../variables.css';
-@import '../css/container.css';
-
 
 .danger {
     color: var(--color-quinary);

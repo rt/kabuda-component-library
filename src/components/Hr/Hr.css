@@ -1,7 +1,4 @@
 
-@import '../variables.css';
-
-
 hr {
   border: 0;
   border-top: .1rem solid var(--color-tertiary);

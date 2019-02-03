@@ -1,4 +1,3 @@
-@import '../variables.css';
 
 .root {
   appearance: none; /*Removes awkward default styles on some inputs for iOS*/
