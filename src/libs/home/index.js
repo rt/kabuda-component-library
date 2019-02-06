@@ -9,7 +9,6 @@ import User from './models/user';
 import * as appStateActions from './actions/app-state';
 import * as routeSetupActions from './actions/route-setup';
 import * as usersActions from './actions/usersActions';
-import * as formActions from './actions/form';
 import * as stateStore from './stores/state-store';
 import * as dataStore from './stores/data-store';
 import { getComm as _getComm, setComm, getFetch as _getFetch, setFetch } from './utils/comm';
@@ -47,7 +46,6 @@ export const actions = {
     appState: appStateActions,
     routeSetup: routeSetupActions,
     users: usersActions,
-    form: formActions
 };
 
 export const uiData = {
