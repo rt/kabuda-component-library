@@ -1,32 +1,6 @@
-import { getComm, getFetch } from '../utils/comm';
 import { getStore } from '../stores/data-store';
 import { getStateStore } from '../stores/state-store';
-import User from '../models/user';
 import RouteDefinition from '../models/route-definition';
-
-// setup routes execute on both the server and client
-// try to think about SEO
-// data is rendered but no state
-
-export function init() {
-    return new Promise((resolve, reject) => {
-        getFetch()('/init', {
-            method: 'get',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json',
-            },
-            credentials: 'include',
-        }).then((res) => {
-            res.json().then((res) => {
-                getStore().createUser(new User(res.data.user));
-                resolve();
-            }).catch((e) => {
-                resolve();
-            });
-        });
-    });
-}
 
 
 /**

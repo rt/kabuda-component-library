@@ -1,9 +1,7 @@
 import { stores, models } from 'kabuda-liquid';
 import UiData from '../models/ui-data';
-import User from '../models/user';
 
 const tables = {
-    USER: 'user',
     UI_DATA: 'uiData',
     SYSTEM_DATA: 'systemData',
 };
@@ -13,7 +11,6 @@ export function getStore() {
     if (instance === null) {
         instance = new DataStore({
             schema: {
-                user: User,
                 uiData: UiData,
                 systemData: models.Model,
             },
@@ -22,7 +19,7 @@ export function getStore() {
     return instance;
 }
 
-export function setupStore(serverStore, uiData, lang, user, systemData) {
+export function setupStore(serverStore, uiData, lang, systemData) {
     const store = getStore();
     store.reinitialize();
 
@@ -32,10 +29,6 @@ export function setupStore(serverStore, uiData, lang, user, systemData) {
 
     if (uiData) {
         store.createUiData(uiData, lang);
-    }
-
-    if (user) {
-        store.createUser(user.toClient());
     }
 
     if (systemData) {
@@ -48,22 +41,6 @@ export class DataStore extends stores.ClassStore {
     constructor(options) {
         super(options);
         this.deserialize({});
-    }
-
-    /**
-     * @return {User | null}
-     */
-    getUser() {
-        return this.getFirstObject(tables.USER);
-    }
-
-    /**
-     * @param {User} user
-     */
-    createUser(user) {
-        this.clearCollection(tables.USER);
-        user = this.create(tables.USER, user);
-        this.fire(events.USER_CHANGE, user);
     }
 
     getItems() {

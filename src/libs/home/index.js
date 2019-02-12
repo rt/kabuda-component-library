@@ -11,7 +11,6 @@ import * as routeSetupActions from './actions/route-setup';
 import * as usersActions from './actions/usersActions';
 import * as stateStore from './stores/state-store';
 import * as dataStore from './stores/data-store';
-import { getComm as _getComm, setComm, getFetch as _getFetch, setFetch } from './utils/comm';
 
 export const stores = {
     dataStore,
@@ -21,15 +20,8 @@ export const stores = {
 export function setup(options) {
     const store = dataStore.setupStore(options.dataStore, options.uiData, options.lang, options.user, options.systemData);
     stateStore.setupStateStore(options.sessionStorage);
-
-    setComm(options.comm);
-    setFetch(options.fetch);
-
     return store;
 }
-
-export const getComm = _getComm;
-export const getFetch = _getFetch;
 
 export const models = {
     AppState,
