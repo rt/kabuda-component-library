@@ -6,6 +6,9 @@ const tables = {
     SYSTEM_DATA: 'systemData',
 };
 
+export const events = {
+};
+
 let instance = null;
 export function getStore() {
     if (instance === null) {
@@ -41,20 +44,6 @@ export class DataStore extends stores.ClassStore {
     constructor(options) {
         super(options);
         this.deserialize({});
-    }
-
-    getItems() {
-        return this.all(tables.ITEM);
-    }
-
-    setItems(items) {
-        this.setCollection(tables.ITEM, items.map(obj => new models.Model(obj)));
-        this.fire(events.ITEM_CHANGE);
-    }
-
-    createItem(item) {
-        this.create(tables.ITEM, item);
-        this.fire(events.ITEM_CHANGE);
     }
 
     createSystemData(systemData) {
@@ -122,6 +111,3 @@ export class DataStore extends stores.ClassStore {
     }
 }
 
-export const events = {
-    USER_CHANGE: '1', // users are change when page loads
-};

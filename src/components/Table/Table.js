@@ -26,11 +26,17 @@ export class Table extends Base {
 
     getHeader = () => {
         if (this.props.displayFields) {
-            return this.props.displayFields.map((displayField, index) => <th key={index}>{this.getHeaderText(displayField)}</th>);
+            return this.props.displayFields.map((displayField, index) => {
+                return <th key={index} onClick={(e) => { this.handleHeaderClick(e, displayField, index); }} >{this.getHeaderText(displayField)}</th>
+            });
         }
     }
 
-    rowClick = (e, item, index) => {
+    handleHeaderClick = (e, displayField, index) => {
+        this.props.onHeaderClick && this.props.onHeaderClick(displayField, index);
+    }
+
+    handleRowClick = (e, item, index) => {
         this.props.onRowClick && this.props.onRowClick(item, index);
     }
 
@@ -47,7 +53,7 @@ export class Table extends Base {
                 classes.push(isEven(index) ? s.evenRow : s.oddRow);
             }
 
-            return <tr className={cx(...classes)} onClick={(e) => { this.rowClick(e, item, index); }} key={index}>{this.getRow(item)}</tr>;
+            return <tr className={cx(...classes)} onClick={(e) => { this.handleRowClick(e, item, index); }} key={index}>{this.getRow(item)}</tr>;
         });
     }
 
