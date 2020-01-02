@@ -39,11 +39,6 @@ class App extends React.Component {
     constructor(props) {
         super(props);
 
-        const store = stores.dataStore.getStore();
-        store.subscribe(stores.dataStore.events.BLAH, this, () => {
-            // console.log('BLAH Store fired');
-        });
-
         this.state = {
             appState: new models.AppState({
                 overlays: {},
