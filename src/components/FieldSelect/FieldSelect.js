@@ -24,15 +24,17 @@ export class FieldSelect extends Base {
     render() {
         return (
             <div data-e2e={this.e2e()} className={s.root}>
-                <Label>{this.props.field.fieldName} {this.getIsRequired()}</Label>
-                <InputSelect
-                    options={this.props.field.options}
-                    keyPath="key"
-                    valuePath="value"
-                    status={this.props.field.status}
-                    selectedKey={this.props.field.value}
-                    onChange={this.handleChange}
-                />
+                <div className={s.labelInputContainer}>
+                    <Label>{this.props.field.fieldName} {this.getIsRequired()}</Label>
+                    <InputSelect
+                        options={this.props.field.options}
+                        keyPath="key"
+                        valuePath="value"
+                        status={this.props.field.status}
+                        selectedKey={this.props.field.value}
+                        onChange={this.handleChange}
+                    />
+                </div>
                 {this.getValidations()}
             </div>
         );
