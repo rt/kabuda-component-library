@@ -1,0 +1,19 @@
+
+.root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding-top: var(--surface-padding-top);
+  padding-bottom: var(--surface-padding-bottom);
+  padding-left: var(--surface-padding-left);
+  padding-right: var(--surface-padding-right);
+  a {
+    color: var(--color-on-primary-variant1-action);
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: var(--color-secondary);
+    }
+  }
+}

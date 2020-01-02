@@ -10,7 +10,7 @@ export default {
         require('./home').default,
 
         // Wildcard routes, e.g. { path: '*', ... } (must go last)
-        require('./notFound').default,
+        require('./not-found').default,
     ],
 
     async action({ next }) {

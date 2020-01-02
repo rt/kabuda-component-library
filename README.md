@@ -188,3 +188,12 @@ you should reuse variables and expose new ones if needed.
 --screen-lg-min: 1200px; /* Large screen / wide desktop */
 }
 ```
+
+## Building the component library app
+
+*Sym link a variables.css file*
+
+```
+cd src/components/
+ln -s ../routes/variables.css .
+```

@@ -1,0 +1,6 @@
+{
+    "name": "SurfaceBar",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./SurfaceBar.js"
+}

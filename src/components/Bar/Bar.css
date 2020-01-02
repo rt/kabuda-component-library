@@ -1,0 +1,33 @@
+
+.root {
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  align-items: baseline;
+
+}
+
+
+.brand {
+  flex: 1 1 auto;
+  color: color(var(--color-primary) lightness(+10%));
+  font-size: var(--text-xlarge);
+  text-align: left;
+  min-width: var(--nav-min-width);
+
+  & img {
+    height: 2.2rem;
+    width: 2.2rem;
+    display: inline-block;
+  }
+}
+
+.versionTxt {
+  font-size: var(--text-small);
+}
+
+.nav {
+  text-align: right;
+}
+
+

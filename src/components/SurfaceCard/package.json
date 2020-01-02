@@ -1,0 +1,6 @@
+{
+    "name": "SurfaceCard",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./SurfaceCard.js"
+}

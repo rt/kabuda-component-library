@@ -1,0 +1,29 @@
+/* Every Layout will have these */
+@import '../css/normalize.css';
+@import '../variables.css';
+@import '../css/base.css';
+/* -----------------------------*/
+
+.root {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+  margin-left: var(--layout-margin-left);
+  margin-right: var(--layout-margin-right);
+}
+
+.bar {
+}
+
+.header {
+}
+
+.main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.footer {
+}
+

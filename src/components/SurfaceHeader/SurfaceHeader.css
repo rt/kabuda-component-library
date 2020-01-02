@@ -1,0 +1,19 @@
+
+.root {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  background: var(--color-primary);
+  color: var(--color-on-primary);
+
+  a {
+    color: var(--color-on-primary-variant-action);
+    text-decoration: none;
+
+    &:focus,
+    &:hover {
+      color: var(--color-secondary);
+    }
+  }
+}
