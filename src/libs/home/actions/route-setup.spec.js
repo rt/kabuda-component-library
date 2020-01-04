@@ -1,15 +1,12 @@
-import chai from 'chai';
 import { addRecentlyViewedRoute, addHistoryRoute } from './route-setup';
 import { setupStore } from '../stores/data-store';
 import { getStateStore, setupStateStore } from '../stores/state-store';
 import RouteHistory from '../models/route-history';
 
-const expect = chai.expect;
-
 describe('#route-setup', () => {
     let store,
         stateStore;
-    before(() => {
+    beforeAll(() => {
         store = setupStore();
         stateStore = setupStateStore();
     });
@@ -25,11 +22,11 @@ describe('#route-setup', () => {
             stateStore.reinitialize();
         });
 
-        it('should add to store', () => {
+        test('should add to store', () => {
             addRecentlyViewedRoute('/some/route', 'Name');
             const manager = stateStore.getRouteHistoryManager();
 
-            expect(manager.recentlyViewedRoutes.length).to.eq(1);
+            expect(manager.recentlyViewedRoutes.length).toBe(1);
         });
     });
 
@@ -39,14 +36,14 @@ describe('#route-setup', () => {
             stateStore.reinitialize();
         });
 
-        it('should add to store', () => {
+        test('should add to store', () => {
             addHistoryRoute(new RouteHistory({
                 path: '/some/path',
                 timestamp: new Date(),
             }));
             const manager = stateStore.getRouteHistoryManager();
 
-            expect(manager.historyRoutes.length).to.eq(1);
+            expect(manager.historyRoutes.length).toBe(1);
         });
     });
 });

@@ -1,10 +1,4 @@
-import chai from 'chai';
-import sinon from 'sinon';
 import Settings from './settings';
-
-chai.expect();
-
-const expect = chai.expect;
 
 describe.skip('settings', () => {
     /**
@@ -12,7 +6,7 @@ describe.skip('settings', () => {
      * on all actions for the duration of the tests
      */
     describe('#setupActionUI', () => {
-        it('should setup action top methods to handle errors and log to the server ...', (done) => {
+        test('should setup action top methods to handle errors and log to the server ...', (done) => {
             // stubServerLogging();
 
             const actions = {};
@@ -41,8 +35,8 @@ describe.skip('settings', () => {
             action.apiDummyMethod().catch((error) => {
                 // error should be thrown to be caught by implementor
                 caught = true;
-                expect(error).to.be.instanceof(Error);
-                expect(action.logErrorMessage).to.have.been.called; // this isn't working with es6
+                expect(error).toBeInstanceOf(Error);
+                expect(action.logErrorMessage).toHaveBeenCalled(); // this isn't working with es6
                 done();
             });
         });

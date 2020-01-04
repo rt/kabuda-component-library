@@ -1,27 +1,24 @@
-import chai from 'chai';
 import RouteHistoryManager from './route-history-manager';
 import RouteDefinition from './route-definition';
 import RouteHistory from './route-history';
-
-const expect = chai.expect;
 
 describe('RouteHistoryManager', () => {
     let model;
 
     describe('#deserialize', () => {
-        it('should deserialize properties', () => {
+        test('should deserialize properties', () => {
             model = new RouteHistoryManager({
                 historyRoutes: [{ path: 'blah' }],
                 recentlyViewedRoutes: [{ text: 'Item Name' }],
             });
 
-            expect(model.historyRoutes[0]).to.be.instanceof(RouteHistory);
-            expect(model.recentlyViewedRoutes[0]).to.be.instanceof(RouteDefinition);
+            expect(model.historyRoutes[0]).toBeInstanceOf(RouteHistory);
+            expect(model.recentlyViewedRoutes[0]).toBeInstanceOf(RouteDefinition);
         });
     });
 
     describe('#getBreadCrumbRoutes', () => {
-        it('should return array of route definitions for a given path', () => {
+        test('should return array of route definitions for a given path', () => {
             const path = '/reference/itemDetails';
             const routeDefinitions = [
                 {
@@ -40,12 +37,12 @@ describe('RouteHistoryManager', () => {
             model = new RouteHistoryManager({});
             const routes = model.getBreadCrumbRoutes(path, routeDefinitions);
 
-            expect(routes.length).to.eq(2);
-            expect(routes[0].text).to.eq('Reference');
-            expect(routes[1].text).to.eq('Item Details');
+            expect(routes.length).toBe(2);
+            expect(routes[0].text).toBe('Reference');
+            expect(routes[1].text).toBe('Item Details');
         });
 
-        it('should look thru recently viewed routes to get item text ', () => {
+        test('should look thru recently viewed routes to get item text ', () => {
             const path = '/reference/itemDetails/ID2';
             const routeDefinitions = [
                 {
@@ -75,15 +72,15 @@ describe('RouteHistoryManager', () => {
             });
             const routes = model.getBreadCrumbRoutes(path, routeDefinitions);
 
-            expect(routes.length).to.eq(3);
-            expect(routes[0].text).to.eq('Reference');
-            expect(routes[1].text).to.eq('Item Details');
-            expect(routes[2].text).to.eq('Item 2');
+            expect(routes.length).toBe(3);
+            expect(routes[0].text).toBe('Reference');
+            expect(routes[1].text).toBe('Item Details');
+            expect(routes[2].text).toBe('Item 2');
         });
     });
 
     describe('#getRecentlyViewedRoutes', () => {
-        it('should return array of recently viewed route definitions if childs of the given paths', () => {
+        test('should return array of recently viewed route definitions if childs of the given paths', () => {
             const path = '/reference/itemDetails';
             const routeDefinitions = [
                 {
@@ -108,26 +105,26 @@ describe('RouteHistoryManager', () => {
             });
             let routes = model.getRecentlyViewedRoutes(['/reference']);
 
-            expect(routes.length).to.eq(2);
-            expect(routes[0].text).to.eq('Item Details');
-            expect(routes[1].text).to.eq('Tables');
+            expect(routes.length).toBe(2);
+            expect(routes[0].text).toBe('Item Details');
+            expect(routes[1].text).toBe('Tables');
 
             routes = model.getRecentlyViewedRoutes(['/reference', '/']);
 
-            expect(routes.length).to.eq(3);
-            expect(routes[0].text).to.eq('Reference');
-            expect(routes[1].text).to.eq('Item Details');
-            expect(routes[2].text).to.eq('Tables');
+            expect(routes.length).toBe(3);
+            expect(routes[0].text).toBe('Reference');
+            expect(routes[1].text).toBe('Item Details');
+            expect(routes[2].text).toBe('Tables');
 
             routes = model.getRecentlyViewedRoutes(['/reference', '/reference/itemDetails']);
 
-            expect(routes.length).to.eq(3);
-            expect(routes[0].text).to.eq('Item Details');
-            expect(routes[1].text).to.eq('Tables');
-            expect(routes[2].text).to.eq('Item 1');
+            expect(routes.length).toBe(3);
+            expect(routes[0].text).toBe('Item Details');
+            expect(routes[1].text).toBe('Tables');
+            expect(routes[2].text).toBe('Item 1');
         });
 
-        it('should not include duplicates', () => {
+        test('should not include duplicates', () => {
             const path = '/reference/itemDetails';
             const routeDefinitions = [
                 {
@@ -148,8 +145,8 @@ describe('RouteHistoryManager', () => {
             });
             const routes = model.getRecentlyViewedRoutes(['/reference']);
 
-            expect(routes.length).to.eq(1);
-            expect(routes[0].text).to.eq('Item Details');
+            expect(routes.length).toBe(1);
+            expect(routes[0].text).toBe('Item Details');
         });
     });
 });

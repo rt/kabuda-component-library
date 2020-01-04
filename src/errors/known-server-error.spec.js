@@ -1,19 +1,14 @@
-import chai from 'chai';
 import KnownServerError from './known-server-error';
 import NetworkError from './network-error';
-
-chai.expect();
-
-const expect = chai.expect;
 
 describe('KnownServerError', () => {
     let error;
 
     describe('#constructor', () => {
-        it('should inherit properly', () => {
+        test('should inherit properly', () => {
             error = new KnownServerError();
-            expect(error).to.be.instanceof(NetworkError);
-            expect(error).to.be.instanceof(KnownServerError);
+            expect(error).toBeInstanceOf(NetworkError);
+            expect(error).toBeInstanceOf(KnownServerError);
         });
     });
 });

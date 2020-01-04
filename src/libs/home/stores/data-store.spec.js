@@ -1,11 +1,8 @@
-import chai from 'chai';
 import { setupStore } from '../stores/data-store';
-
-const expect = chai.expect;
 
 describe('data-store', () => {
     let store;
-    before(() => {
+    beforeAll(() => {
         store = setupStore();
     });
 
@@ -14,7 +11,7 @@ describe('data-store', () => {
     });
 
     describe('#createUiData', () => {
-        it('should create all apps ui data for a given language, then set current app', () => {
+        test('should create all apps ui data for a given language, then set current app', () => {
             store.createUiData({
                 apps: {
                     a: {
@@ -32,13 +29,13 @@ describe('data-store', () => {
 
             let currentUiData = store.getUiData();
 
-            expect(currentUiData.app).to.eq('b');
-            expect(currentUiData.isCurrentApp).to.be.true;
+            expect(currentUiData.app).toBe('b');
+            expect(currentUiData.isCurrentApp).toBe(true);
 
             store.setCurrentUiData('a');
             currentUiData = store.getUiData();
-            expect(currentUiData.app).to.eq('a');
-            expect(currentUiData.isCurrentApp).to.be.true;
+            expect(currentUiData.app).toBe('a');
+            expect(currentUiData.isCurrentApp).toBe(true);
         });
     });
 });

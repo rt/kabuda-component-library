@@ -1,42 +1,37 @@
-import chai from 'chai';
 // import {init} from '../index';
 import SkeletonError from './skeleton-error';
 import NetworkError from './network-error';
-
-chai.expect();
-
-const expect = chai.expect;
 
 describe('NetworkError', () => {
     let error;
 
     describe('#constructor', () => {
-        it('should inherit properly', () => {
+        test('should inherit properly', () => {
             error = new NetworkError({}, {});
-            expect(error).to.be.instanceof(SkeletonError);
+            expect(error).toBeInstanceOf(SkeletonError);
         });
     });
 
     describe('#setRequest', () => {
-        it('should set request when string', () => {
+        test('should set request when string', () => {
             error = new NetworkError();
             error.setRequest('{"a":1, "b":2}');
-            expect(error.request).to.deep.equal({ a: 1, b: 2 });
+            expect(error.request).toEqual({ a: 1, b: 2 });
         });
 
-        it('should set request NOT JSON REQUEST when string is not a json', () => {
+        test('should set request NOT JSON REQUEST when string is not a json', () => {
             error = new NetworkError();
             error.setRequest('blah');
-            expect(error.request).to.equal('NOT JSON REQUEST');
+            expect(error.request).toBe('NOT JSON REQUEST');
         });
 
-        it('should set request when object', () => {
+        test('should set request when object', () => {
             error = new NetworkError();
             error.setRequest({ a: 1, b: 2 });
-            expect(error.request).to.deep.equal({ a: 1, b: 2 });
+            expect(error.request).toEqual({ a: 1, b: 2 });
         });
 
-        it('should hide creditCard info', () => {
+        test('should hide creditCard info', () => {
             error = new NetworkError();
             error.setRequest({
                 payment: {
@@ -48,7 +43,7 @@ describe('NetworkError', () => {
                     },
                 },
             });
-            expect(error.request).to.deep.equal({
+            expect(error.request).toEqual({
                 payment: {
                     creditCard: {
                         number: '*** 4 chars ***',
@@ -60,7 +55,7 @@ describe('NetworkError', () => {
             });
         });
 
-        it('should pass falsy creditCard info', () => {
+        test('should pass falsy creditCard info', () => {
             error = new NetworkError();
             error.setRequest({
                 creditCard: {
@@ -70,7 +65,7 @@ describe('NetworkError', () => {
                     type: undefined,
                 },
             });
-            expect(error.request).to.deep.equal({
+            expect(error.request).toEqual({
                 creditCard: {
                     number: '',
                     securityCode: null,
@@ -82,7 +77,7 @@ describe('NetworkError', () => {
     });
 
     describe('#setResponse', () => {
-        it.skip('should default error message on bogus response', () => {
+        test.skip('should default error message on bogus response', () => {
             init({
                 defaultErrorMessage: 'default message',
             });
@@ -93,12 +88,12 @@ describe('NetworkError', () => {
                 error.setResponse({
                     responseText: JSON.stringify(response),
                 });
-                expect(error.message).to.be.equal('default message');
+                expect(error.message).toBe('default message');
             }
         });
 
         // check with rhys on his change > 146589
-        it.skip('should have server error as message property', () => {
+        test.skip('should have server error as message property', () => {
             error = new NetworkError();
             const response = {
                 meta: {
@@ -110,7 +105,7 @@ describe('NetworkError', () => {
             error.setResponse({
                 responseText: JSON.stringify(response),
             });
-            expect(error.message).to.be.equal('some server error');
+            expect(error.message).toBe('some server error');
         });
     });
 });

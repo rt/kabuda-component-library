@@ -1,7 +1,4 @@
-import chai from 'chai';
 import { translate, pluralize } from './translator';
-
-const expect = chai.expect;
 
 describe('#translator', () => {
     let model;
@@ -12,38 +9,38 @@ describe('#translator', () => {
     });
 
     describe('#translate', () => {
-        it('should translate with no parameters', () => {
-            expect(translate('hello')).to.eq('hello');
+        test('should translate with no parameters', () => {
+            expect(translate('hello')).toEqual('hello');
         });
 
-        it('should translate with parameters', () => {
+        test('should translate with parameters', () => {
             const s = translate('hello #person1# and #person2#', {
                 person1: 'remi',
                 person2: 'mira',
             });
-            expect(s).to.eq('hello remi and mira');
+            expect(s).toEqual('hello remi and mira');
         });
     });
 
     describe('#pluralize', () => {
-        // it('should throw if no number value', () => {
-        // expect(pluralize(undefined, 'hello')).to.throw(Error);
+        // test('should throw if no number value', () => {
+        // expect(pluralize(undefined, 'hello')).toThrow(Error);
         // });
 
-        it('should get appropriate string', () => {
+        test('should get appropriate string', () => {
             const o = {
                 zero: 'zero',
                 one: 'one',
                 twoOrMore: 'twoOrMore',
             };
 
-            expect(pluralize(0, o)).to.eq('zero');
-            expect(pluralize(1, o)).to.eq('one');
-            expect(pluralize(2, o)).to.eq('twoOrMore');
-            expect(pluralize(9, o)).to.eq('twoOrMore');
+            expect(pluralize(0, o)).toEqual('zero');
+            expect(pluralize(1, o)).toEqual('one');
+            expect(pluralize(2, o)).toEqual('twoOrMore');
+            expect(pluralize(9, o)).toEqual('twoOrMore');
         });
 
-        it('should pluralize with parameters', () => {
+        test('should pluralize with parameters', () => {
             const o = {
                 zero: '#number# people for #name#',
                 one: '#number# person here for #name#',
@@ -54,10 +51,10 @@ describe('#translator', () => {
                 name: 'ryan',
             };
 
-            expect(pluralize(0, o, params)).to.eq('0 people for ryan');
-            expect(pluralize(1, o, params)).to.eq('1 person here for ryan');
-            expect(pluralize(2, o, params)).to.eq('2 people here for ryan');
-            expect(pluralize(9, o, params)).to.eq('9 people here for ryan');
+            expect(pluralize(0, o, params)).toEqual('0 people for ryan');
+            expect(pluralize(1, o, params)).toEqual('1 person here for ryan');
+            expect(pluralize(2, o, params)).toEqual('2 people here for ryan');
+            expect(pluralize(9, o, params)).toEqual('9 people here for ryan');
         });
     });
 });

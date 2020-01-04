@@ -1,10 +1,14 @@
-import chai from 'chai';
-import sinonChai from 'sinon-chai';
-import chaiAsPromised from 'chai-as-promised';
+// import chai from 'chai';
+// import sinonChai from 'sinon-chai';
+// import chaiAsPromised from 'chai-as-promised';
 
-import { setup as referenceSetup } from '../libs/reference';
-import { stores as homeStores, setup as homeSetup } from '../libs/home';
-import uiData from '../ui-data';
+import { configure } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+configure({ adapter: new Adapter() });
+
+// import { setup as referenceSetup } from '../libs/reference';
+// import { stores as homeStores, setup as homeSetup } from '../libs/home';
+// import uiData from '../ui-data';
 
 process.env.NODE_ENV = 'test';
 process.env.SKELETON_DB_NAME = 'unit';
@@ -16,27 +20,27 @@ process.env.SKELETON_DB_NAME = 'unit';
     require.extensions[ext] = () => null;
 });
 
-before(() => {
-    chai.use(sinonChai);
-    chai.use(chaiAsPromised);
-    chai.should();
-});
+// before(() => {
+    // chai.use(sinonChai);
+    // chai.use(chaiAsPromised);
+    // chai.should();
+// });
 
-beforeEach(() => {
-    const store = homeSetup({
-        uiData,
-        lang: 'en',
-    });
-    store.setCurrentUiData('reference');
+// beforeEach(() => {
+    // const store = homeSetup({
+    //     uiData,
+    //     lang: 'en',
+    // });
+    // store.setCurrentUiData('reference');
+    //
+    // homeStores.stateStore.getStateStore().reinitialize();
+    //
+    // referenceSetup(null, null, null, null);
+// });
 
-    homeStores.stateStore.getStateStore().reinitialize();
-
-    referenceSetup(null, null, null, null);
-});
-
-afterEach(() => {
+// afterEach(() => {
     // this.sandbox.restore();
-});
+// });
 
 
-require('babel-register');
+// require('babel-register');
