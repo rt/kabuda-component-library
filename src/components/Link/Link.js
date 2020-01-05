@@ -44,9 +44,7 @@ class Link extends Base {
     };
 
     render() {
-        const {
-            to, children, ignoreHistory, ...props
-        } = this.props;
+        const { to, children, ignoreHistory, ...props } = this.props;
         return <a data-e2e={this.e2e()} href={to} {...props} onClick={this.handleClick}>{children}</a>;
     }
 }

@@ -22,6 +22,7 @@
     "test": "jest",
     "testOld": " mocha --require @babel/register 'src/utils/test_setup.js' 'src/**/*.spec.js'",
     "test:watch": "npm run test -- --watch",
+    "test:watch:all": "npm run test -- --watchAll",
     "coverOld": "nyc --reporter=html npm run test && nyc report",
     "cover": "npm test -- --coverage",
     "automation": "mocha --require @babel/register --colors 'automation/test_setup.js' 'automation/scenarios/**/*.spec.js'",
@@ -141,6 +142,12 @@
     ],
     "setupFiles": [
       "./src/utils/test_setup.js"
-    ]
+    ],
+    "coverageReporters": ["html"],
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy",
+      "isomorphic-style-loader/lib/withStyles": "<rootDir>/__mocks__/withStyles.js"
+    }
   }
 }

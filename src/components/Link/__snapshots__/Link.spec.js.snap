@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`allows child elments 1`] = `
+<a
+  data-e2e="link"
+  href="http://www.pebblefields.com"
+  onClick={[Function]}
+>
+  <b>
+    <i>
+      PebbleFields
+    </i>
+  </b>
+</a>
+`;
+
+exports[`renders correctly 1`] = `
+<a
+  data-e2e="link"
+  href="http://www.pebblefields.com"
+  onClick={[Function]}
+>
+  PebbleFields
+</a>
+`;

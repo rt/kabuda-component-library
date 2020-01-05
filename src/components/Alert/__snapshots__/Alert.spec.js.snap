@@ -1,0 +1,16 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className={null}
+  data-e2e="alert"
+>
+  <span
+    className="closebtn"
+    onClick={[Function]}
+  >
+    ×
+  </span>
+  PebbleFields
+</div>
+`;
