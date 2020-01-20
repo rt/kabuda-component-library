@@ -1,0 +1,15 @@
+@import '../../../components/css/effects.css';
+@import '../../../components/css/container.css';
+
+.root {
+}
+
+.root:hover {
+}
+
+.title {
+    color: grey;
+    font-size: 18px;
+    text-align: center;
+}
+

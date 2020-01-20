@@ -1,0 +1,6 @@
+{
+    "name": "ItemFormImage",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./ItemFormImage.js"
+}

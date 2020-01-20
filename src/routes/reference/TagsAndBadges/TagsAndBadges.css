@@ -1,0 +1,9 @@
+@import '../../../components/css/container.css';
+
+.root {
+}
+
+.tag {
+    display: inline-block;
+    text-align: center;
+}

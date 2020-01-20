@@ -1,0 +1,6 @@
+{
+    "name": "ReferenceList",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./ReferenceList.js"
+}

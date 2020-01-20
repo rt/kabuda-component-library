@@ -1,0 +1,6 @@
+{
+    "name": "ReferenceTag",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./ReferenceTag.js"
+}

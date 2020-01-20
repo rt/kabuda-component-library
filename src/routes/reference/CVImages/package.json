@@ -1,0 +1,6 @@
+{
+    "name": "CVImages",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./CVImages.js"
+}

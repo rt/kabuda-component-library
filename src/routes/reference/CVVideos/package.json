@@ -1,0 +1,6 @@
+{
+    "name": "CVVideos",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./CVVideos.js"
+}

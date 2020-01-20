@@ -1,0 +1,82 @@
+/* Every Layout will have these */
+@import '../../../components/css/normalize.css';
+@import '../../variables.css';
+@import '../../../components/css/base.css';
+/* -----------------------------*/
+
+
+/*These are not used at layout load, so not put in at top level*/
+/*@import '../../../../../node_modules/react-day-picker/lib/style.css';*/
+/*@import '../../../../../node_modules/react-big-calendar/lib/css/react-big-calendar.css';*/
+
+/* -----------------------------*/
+@import '../../../components/css/container.css';
+@import '../../../components/css/grid.css';
+@import '../../../components/css/animations.css';
+
+
+.root {
+    min-height: 100vh;
+    /*max-height: 100vh;*/
+    display: flex;
+    flex-direction: column;
+}
+
+.topBar {
+    flex: 0 0 5.0rem;
+}
+
+.content {
+    flex: 1;
+
+	display: flex;
+    flex-direction: row;
+}
+
+.tabs {
+}
+
+.tabList {
+    max-height: 100vh;
+    flex: 1;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+}
+
+.nav {
+    display: none;
+}
+
+.article {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.articleContents {
+    flex: 1 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.articleHeader {
+    /*flex: 0 0 5.0rem;*/
+    /*background-color: red;*/
+}
+
+.articleBody {
+    flex: 1;
+    display: flex;
+}
+
+@media only screen and (min-width: 768px) {
+
+    .nav {
+        flex: 0 0 25%;
+        min-width: var(--nav-min-width);
+        
+        display: flex;
+        flex-direction: column;
+    }
+}
+

@@ -10,6 +10,7 @@ import { updateMeta } from './DOMUtils';
 import router from './router';
 
 import { stores as homeStores, actions as homeActions, models as homeModels, setup as homeSetup } from './libs/home';
+import { actions as referenceActions, stores as referenceStores, setup as referenceSetup } from './libs/reference';
 import Ajax from './utils/ajax';
 
 //general stores
@@ -19,6 +20,9 @@ const store = homeSetup({
     fetch: fetch,
     comm: Ajax
 });
+
+//reference stores
+referenceSetup(__referenceStore__, window.sessionStorage);
 
 
 
@@ -47,7 +51,6 @@ async function onLocationChange(location, action) {
 
 
     store.setCurrentUiData('home');
-
 
 
     // Remember the latest scroll position for the previous location

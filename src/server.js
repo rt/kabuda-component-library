@@ -14,6 +14,7 @@ import router from './router';
 import chunks from './chunk-manifest.json'; // eslint-disable-line import/no-unresolved
 import config from './config';
 import { models, setup as homeSetup } from './libs/home';
+import { setup as referenceSetup, stores as referenceStores } from './libs/reference';
 import uiData from './ui-data';
 
 process.on('unhandledRejection', (reason, p) => {
@@ -80,6 +81,9 @@ app.get('*', async (req, res, next) => {
             }
         });
 
+        //reference stores
+        referenceSetup(null, null, nodeFetch);
+        
         store.setCurrentUiData('home');
 
         const data = {};
@@ -101,6 +105,7 @@ app.get('*', async (req, res, next) => {
 
         data.store = `
             var __store__ = ${JSON.stringify(store.serialize())};
+            var __referenceStore__ = ${JSON.stringify(referenceStores.dataStore.getStore().serialize())};
         `.trim();
 
         const html = ReactDOM.renderToStaticMarkup(<Html config={config} {...data} />);

@@ -1,0 +1,6 @@
+{
+    "name": "AccessibilityNote",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./AccessibilityNote.js"
+}

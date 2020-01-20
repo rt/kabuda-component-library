@@ -1,0 +1,9 @@
+@import '../../../components/css/grid.css';
+@import '../../../components/css/container.css';
+
+.root {
+}
+
+.richTextEditor {
+    height: 400px;
+}

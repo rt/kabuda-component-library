@@ -1,0 +1,60 @@
+@import '../../variables.css';
+@import '../../../components/css/container.css';
+
+.root {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    align-items: center;
+    background-color: var(--color-black);
+    color: var(--color-initial);
+}
+.brand {
+    flex: 1 1 auto;
+    color: color(var(--color-primary) lightness(+10%));
+    font-size: var(--text-xlarge);
+    text-align: left;
+    min-width: var(--nav-min-width);
+    white-space: nowrap;
+
+    & img {
+        height: 2.2rem;
+        width: 2.2rem;
+        display: inline-block;
+    }
+}
+
+.search {
+    display: none;
+}
+
+.versionTxt {
+    font-size: var(--text-small);
+}
+
+.nav {
+    display: inline-flex;
+    font-size: var(--text-xlarge);
+    height: 1em;
+    width: 1em;
+}
+
+@media only screen and (min-width: 768px) {
+    .root {
+        display: flex;
+    }
+    .brand {
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+    .search {
+        flex: 0 0 40%;
+        max-width: 40%;
+        background-color: var(--color-tertiary);
+        position: relative;
+        display: block;
+    }
+    .nav {
+        display: none;
+    }
+}

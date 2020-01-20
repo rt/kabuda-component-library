@@ -1,0 +1,6 @@
+{
+    "name": "ReferenceLayout",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./ReferenceLayout.js"
+}

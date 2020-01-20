@@ -1,0 +1,7 @@
+@import '../../variables.css';
+@import '../../../components/css/grid.css';
+
+.root {
+    flex: 1;
+}
+

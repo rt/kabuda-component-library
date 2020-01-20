@@ -1,0 +1,54 @@
+@import '../../variables.css';
+@import '../../../components/css/container.css';
+
+.root {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+
+.layout {
+  height: 400px;   
+  overflow: hidden;  /*makes the body non-scrollable (we will add scrolling to the sidebar and main content containers)*/
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  height:48px;
+  background-color: #eee;
+  text-align: center;
+  transition: height 0.3s;
+  transition-timing-function: ease-in;
+}
+
+.nav {
+  background-color: #111;
+  font-color: #eee;
+  width:100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+}
+
+.body {
+  flex: 1;
+  display: flex;  /*enables flex content for its children*/
+  box-sizing: border-box;
+}
+
+.sideNav {
+  height: 100%;  /*allows both columns to span the full height of the browser window*/
+  background-color: #bbb;
+  flex-shrink: 0;  /*makes sure that content is not cut off in a smaller browser window*/
+  overflow-y: auto;  /*adds scroll to this container*/
+}
+
+.contents {
+  height: 100%;  /*allows both columns to span the full height of the browser window*/
+  background-color: #aaa;
+  flex-grow: 1;  /*ensures that the container will take up the full height of the parent container*/
+  overflow-y: auto;  /*adds scroll to this container*/
+}
+

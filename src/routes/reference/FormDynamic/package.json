@@ -1,0 +1,6 @@
+{
+    "name": "FormDynamic",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./FormDynamic.js"
+}

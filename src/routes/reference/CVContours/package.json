@@ -1,0 +1,6 @@
+{
+    "name": "CVContours",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./CVContours.js"
+}

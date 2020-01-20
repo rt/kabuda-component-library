@@ -1,0 +1,10 @@
+@import '../../variables.css';
+
+.buttonsHor button {
+    margin-right: 10px;
+}
+
+.buttonsVert button {
+    margin-bottom: 10px;
+}
+

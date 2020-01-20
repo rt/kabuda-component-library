@@ -1,0 +1,37 @@
+@import '../../../components/css/effects.css';
+@import '../../../components/css/container.css';
+
+.root {
+    flex: 1;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /*max-width: 300px;*/
+    transition: 0.3s;
+
+    margin-bottom: 8px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.controls {
+    height: 3.0rem;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.view {
+    flex: 1;
+}
+
+.root:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.title {
+    color: grey;
+    font-size: 18px;
+    text-align: center;
+}
+

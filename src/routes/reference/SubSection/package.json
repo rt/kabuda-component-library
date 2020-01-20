@@ -1,0 +1,6 @@
+{
+    "name": "SubSection",
+    "version": "0.0.0",
+    "private": true,
+    "main": "./SubSection.js"
+}

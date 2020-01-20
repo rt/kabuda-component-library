@@ -1,0 +1,59 @@
+@import '../../../components/css/effects.css';
+@import '../../../components/css/container.css';
+
+.root {
+    flex: 1;
+
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    /*max-width: 300px;*/
+    transition: 0.3s;
+
+    margin-bottom: 8px;
+
+    display: flex;
+    flex-direction: column;
+}
+
+.controls {
+    height: 4.0rem;
+    display: flex;
+    justify-content: flex-end;
+
+}
+
+.view {
+    flex: 1;
+}
+
+.root:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+/* Make circles that indicate the steps of the form: */
+
+.stepContainer {
+    text-align:center;
+    margin-top:40px;
+}
+.step {
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbbbbb;
+    border: none; 
+    border-radius: 50%;
+    display: inline-block;
+    opacity: 0.5;
+}
+
+/* Mark the active step: */
+.active {
+    opacity: 1;
+}
+
+/* Mark the steps that are finished and valid: */
+.finish {
+    background-color: #4CAF50;
+}
+
+

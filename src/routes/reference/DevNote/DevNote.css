@@ -1,0 +1,11 @@
+@import '../../variables.css';
+@import '../../../components/css/container.css';
+
+.root {
+    background-color: var(--color-success);
+    color: var(--color-initial);
+    &>a {
+        color: yellow;
+    }
+}
+

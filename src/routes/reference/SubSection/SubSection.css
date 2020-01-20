@@ -1,0 +1,25 @@
+@import '../../variables.css';
+
+.root {
+    display: flex;
+    flex-direction: column;
+}
+
+.subSectionMain {
+    flex: 1;
+    padding: 0.01em 1.6rem; /*same as container*/
+}
+
+.subSectionNotes {
+    flex: 0;
+    min-width: var(--nav-min-width);
+    padding: 0.01em 1.6rem; /*same as container*/
+}
+
+@media only screen and (min-width: 1200px) {
+
+    .root {
+        flex-direction: row;
+    }
+
+}
