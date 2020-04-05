@@ -274,180 +274,166 @@ export default {
     routes: [
         {
             text: 'Reference',
-            route: '/reference',
+            route: '/',
             status: 'done',
             category: 'none',
             icon: 'blah',
         },
         {
             text: 'Basic Elements, Typography',
-            route: '/reference/typography',
+            route: '/typography',
             category: 'ui',
             icon: 'blah',
         },
         {
             text: 'Variables, Colors and Sizes',
-            route: '/reference/colors',
+            route: '/colors',
             category: 'ui',
             icon: 'blah'
         },
         {
             text: 'Layouts',
-            route: '/reference/layouts',
+            route: '/layouts',
             category: 'ui',
             icon: 'blah'
         },
         {
             text: 'Devices, Media Queries, Grid',
-            route: '/reference/devices',
+            route: '/devices',
             category: 'ui',
             icon: 'blah'
         },
         {
             text: 'Logo and Icons',
-            route: '/reference/logoAndIcons',
+            route: '/logoAndIcons',
             category: 'ui',
             icon: 'blah'
         },
         {
             text: 'Images',
-            route: '/reference/images',
+            route: '/images',
             category: 'ui',
             icon: 'blah'
         },
         {
             text: 'Audio / Video',
-            route: '/reference/audioVideo',
+            route: '/audioVideo',
             category: 'ui',
             icon: 'blah'
         },
         {
             text: 'Buttons',
-            route: '/reference/buttons',
+            route: '/buttons',
             category: 'ui',
             icon: 'blah'
         },
         {
             text: 'Links and Navigation',
-            route: '/reference/links',
+            route: '/links',
             category: 'ui',
             icon: 'blah'
         },
         {
             text: 'Selection',
-            route: '/reference/selection',
+            route: '/selection',
             status: 'todo',
             category: 'ui',
             icon: 'blah'
         },
         {
             text: 'Inputs',
-            route: '/reference/inputs',
+            route: '/inputs',
             category: 'ui',
             icon: 'blah'
         },
         {
             text: 'Timely Actions and Information',
-            route: '/reference/modals',
+            route: '/modals',
             category: 'ui',
             icon: 'blah'
         },
         {
             text: 'Tags, Badges, and Chips',
-            route: '/reference/tagsAndBadges',
+            route: '/tagsAndBadges',
             category: 'ui',
             icon: 'blah'
         },
         {
             text: 'Panels, Notes, and Alerts',
-            route: '/reference/panels',
+            route: '/panels',
             category: 'ui',
             icon: 'blah'
         },
         {
             text: 'Date Pickers',
-            route: '/reference/datePickers',
+            route: '/datePickers',
             category: 'ui',
             subCategory: 'ui-third-party',
             icon: 'blah'
         },
         {
             text: 'Rich Text / Code Editor',
-            route: '/reference/richTextAndCodeEditor',
+            route: '/richTextAndCodeEditor',
             category: 'ui',
             subCategory: 'ui-third-party',
             icon: 'blah'
         },
         {
             text: 'Data Types / Formatting',
-            route: '/reference/formatting',
+            route: '/formatting',
             category: 'data',
             icon: 'blah'
         },
         {
             text: 'Form',
-            route: '/reference/form',
+            route: '/form',
             category: 'data',
             icon: 'blah'
         },
         {
             text: 'Dynamic Form',
-            route: '/reference/formDynamic',
+            route: '/formDynamic',
             category: 'data',
             icon: 'blah'
         },
         {
             text: 'List Details',
-            route: '/reference/listDetails',
+            route: '/listDetails',
             category: 'data',
             icon: 'blah',
         },
         {
             text: 'Tables',
-            route: '/reference/tables',
+            route: '/tables',
             category: 'data',
             icon: 'blah'
         },
         {
             text: 'Filtering',
-            route: '/reference/filter',
+            route: '/filter',
             category: 'data',
             icon: 'blah'
         },
         {
             text: 'Subsets',
-            route: '/reference/subsets',
+            route: '/subsets',
             status: 'todo',
             category: 'data',
             icon: 'blah'
         },
         {
-            text: 'Logging',
-            route: '/reference/logging',
-            status: 'todo',
-            category: 'ops',
-            icon: 'blah'
-        },
-        {
-            text: 'Online Migrations',
-            route: '/reference/onlineMigrations',
-            status: 'todo',
-            category: 'ops',
-            icon: 'blah'
-        },
-        {
             text: 'Computer Vision: Images',
-            route: '/reference/cvimages',
+            route: '/cvimages',
             category: 'ml',
         },
         {
             text: 'Computer Vision: Contours',
-            route: '/reference/cvcontours',
+            route: '/cvcontours',
             category: 'ml',
         },
         {
             text: 'Computer Vision: Videos',
-            route: '/reference/cvvideos',
+            route: '/cvvideos',
             category: 'ml',
         },
     ],

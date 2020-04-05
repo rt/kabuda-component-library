@@ -11,11 +11,7 @@ export default {
     analytics: {
         // https://analytics.google.com/
         googleTrackingId: process.env.GOOGLE_TRACKING_ID, // UA-XXXXX-X
-
     },
-    auth: {
-        jwt: { secret: process.env.JWT_SECRET || 'PebbleFields/Skeleton' },
-    }
 };
 
 
